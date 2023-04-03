@@ -29,8 +29,8 @@ public class PlanKueueItemLoader implements CommandLineRunner {
      */
     private void loadSeedData() {
         if (planKueueItemRepository.count() == 0) {
-            PlanKueueItem plannerItem1 = new PlanKueueItem("get this milk");
-            PlanKueueItem plannerItem2 = new PlanKueueItem("rake the leaves");
+            PlanKueueItem plannerItem1 = new PlanKueueItem("Calc 2: Integrals Homework");
+            PlanKueueItem plannerItem2 = new PlanKueueItem("IT279: Customer Line Queue");
 
             planKueueItemRepository.save(plannerItem1);
             planKueueItemRepository.save(plannerItem2);
