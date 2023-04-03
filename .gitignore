@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## We want the data folder to be ignored because we dont want to share data across all instances of the program ##
+data/
