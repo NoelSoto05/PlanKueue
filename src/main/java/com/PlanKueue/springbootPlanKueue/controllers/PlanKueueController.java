@@ -1,13 +1,22 @@
 package com.PlanKueue.springbootPlanKueue.controllers;
 
+import java.time.Instant;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
 import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
+
+import jakarta.validation.Valid;
 
 //this declares this class as a controller
 @Controller
@@ -27,6 +36,21 @@ public class PlanKueueController {
         modelAndView.addObject("PlannerItems", planKueueItemRepository.findAll());
 
         return modelAndView;
+    }
+
+    @PostMapping("/todo/{id}")
+    public String updateTodoItem(@PathVariable("id") long id, @Valid PlanKueueItem todoItem, BindingResult result,
+            Model model) {
+        if (result.hasErrors()) {
+            todoItem.setId(id);
+            return "update-todo-item";
+        }
+
+        todoItem.setModifiedDate(Instant.now());
+
+        planKueueItemRepository.save(todoItem);
+        return "redirect:/";
+
     }
 
 }
