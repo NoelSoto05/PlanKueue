@@ -28,6 +28,8 @@ public class PlanKueueController {
 
     @GetMapping("/")
     public ModelAndView index() {
+
+        //this logger is at info level and will display the information in the parameter when this call is ran
         logger.debug("Request to GET index page");
         ModelAndView modelAndView = new ModelAndView("index");
 
@@ -36,6 +38,19 @@ public class PlanKueueController {
         modelAndView.addObject("PlannerItems", planKueueItemRepository.findAll());
 
         return modelAndView;
+    }
+    @PostMapping("/todo")
+    public String createTodoItem(@Valid PlanKueueItem todoItem, BindingResult result, Model model){
+
+        if(result.hasErrors()){
+            return "add-todo-item";
+        }
+
+        todoItem.setCreatedDate(Instant.now());
+        todoItem.setModifiedDate(Instant.now());
+        planKueueItemRepository.save(todoItem);
+        
+        return "redirect:/";
     }
 
     @PostMapping("/todo/{id}")
