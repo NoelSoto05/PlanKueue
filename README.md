@@ -16,26 +16,26 @@ These are needed to compile and run the PlanKueue Application
 
 ######################## THINGS TO BE ADDED ###########################################
 
-[X]Creating a task
-[X]Deleting a task
-[X]Editing a task
-[X]Due date 
-[]Add course
-[]Set task recurrence
-[]Task specific notes
-[]General notes section
-[]Update both notes
-[]Remove notes
-[]Calculate grade
-[]Calculate required grade
-[]??Register Acc??
-[]Add an Event non assignment related
-[]update event
-[]remove event
-[]Generate priority list for assignments
-[]Generate priority list for general tasks 
-[]Generate course priority list
-[]Receive Due date or event alerts
+-[X]Creating a task
+-[X]Deleting a task
+-[X]Editing a task
+-[X]Due date 
+-[]Add course
+-[]Set task recurrence
+-[]Task specific notes
+-[]General notes section
+-[]Update both notes
+-[]Remove notes
+-[]Calculate grade
+-[]Calculate required grade
+-[]??Register Acc??
+-[]Add an Event non assignment related
+-[]update event
+-[]remove event
+-[]Generate priority list for assignments
+-[]Generate priority list for general tasks 
+-[]Generate course priority list
+-[]Receive Due date or event alerts
 
 
 
