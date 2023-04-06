@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} "
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/addItemPageProperties.css}"
+    />
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="col-md-6">
-            <h1>Add a new Todo Item</h1>
-            <form action="#" th:action="@{/todo}" th:object="${planKueueItem}" method="POST">
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input class="form-control" type="text" th:field="*{description}" id="description"
-                        placeholder="Description">
-                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-                </div>
+      <div class="col-md-6">
+        <h1>Add a new Todo Item</h1>
+        <form
+          action="#"
+          th:action="@{/todo}"
+          th:object="${planKueueItem}"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              class="form-control"
+              type="text"
+              th:field="*{description}"
+              id="description"
+              placeholder="Description"
+            />
 
-                <button type="submit" class="btn btn-success">Add Todo!</button>
-            </form>
-        </div>
+            <span
+              th:if="${#fields.hasErrors('description')}"
+              th:errors="*{description}"
+            ></span>
+
+            <hr class="no-line" />
+            <label for="dueDate">Select Due Date</label>
+
+            <input
+              type="text"
+              th:field="*{dueDate}"
+              id="dueDate"
+              placeholder="MM/DD/YYYY"
+            />
+            <script>
+              $(function () {
+                $("#dueDate").datepicker();
+              });
+            </script>
+          </div>
+
+          <button type="submit" class="btn btn-success">Add Todo!</button>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

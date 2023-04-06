@@ -53,6 +53,20 @@ public class PlanKueueItem {
     @Setter
     private Instant modifiedDate;
 
+    /* Fetches the due date for the assignment */
+    @Getter
+    @Setter
+    private String dueDate;
+    /* Fetches the amount of points the assignment is worth */
+
+    @Getter
+    @Setter
+    private double assignmentPoints;
+    /* Fetches a note if it was added to the task */
+    @Getter
+    @Setter
+    private String taskNote;
+
     // empty default constructor
     public PlanKueueItem() {
 
@@ -76,6 +90,9 @@ public class PlanKueueItem {
         this.complete = false;
         this.createdDate = Instant.now();
         this.modifiedDate = Instant.now();
+        this.dueDate = "";
+        this.assignmentPoints = 0.0;
+        this.taskNote = "";
 
     }
 
@@ -87,7 +104,7 @@ public class PlanKueueItem {
     public String toString() {
         return String.format(
                 "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate= '%s', modifiedDate ='%s'}",
-                id, description, complete, createdDate, modifiedDate);
+                id, description, complete, createdDate, modifiedDate, dueDate);
     }
 
 }

@@ -8,12 +8,18 @@
       th:rel="stylesheet"
       th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} "
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/indexPageProperties.css}"
+    />
   </head>
+
   <body>
     <div class="container">
       <h1 class="text-center">PlanKueue List</h1>
-      <hr />
-      <table class="table table-bordered table-striped">
+      <hr class="no-line" />
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>Actions</th>
@@ -22,14 +28,19 @@
             <th>Complete</th>
             <th>Created Date</th>
             <th>Modified Date</th>
+            <th>Due Date</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="item: ${PlannerItems}"th:class="${item.complete} ? success : warning">
+          <tr
+            th:each="item: ${PlannerItems}"
+            th:class="${item.complete} ? success : warning"
+          >
             <td>
               <div class="btn btn-group-sm" role="group">
                 <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}"
-                  >Edit</a>
+                  >Edit</a
+                >
                 <a
                   class="btn btn-danger"
                   th:href="@{/delete/{id}(id=${item.id})}"
@@ -42,13 +53,12 @@
             <td th:text="${item.complete}">item_completed</td>
             <td th:text="${item.createdDate}">created_date</td>
             <td th:text="${item.modifiedDate}">modified_date</td>
+            <td th:text="${item.dueDate}">modified_date</td>
           </tr>
         </tbody>
       </table>
-      <p><a class = "btn btn-success" href="/create-todo"> Add a Todo!</a></p>
+      <p><a class="btn btn-success" href="/create-todo"> Add a Todo!</a></p>
     </div>
-
-
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
