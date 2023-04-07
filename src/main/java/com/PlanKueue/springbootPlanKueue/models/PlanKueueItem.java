@@ -37,6 +37,7 @@ public class PlanKueueItem {
     /* Stores the description of the task */
     @Getter
     @Setter
+    @NotBlank(message = "Description cannot be empty")
     private String description;
 
     /* Stores wether or not a task was completed, Default is false */
