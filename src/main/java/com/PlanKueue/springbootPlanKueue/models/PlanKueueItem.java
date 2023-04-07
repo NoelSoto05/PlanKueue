@@ -49,6 +49,7 @@ public class PlanKueueItem {
     @Getter
     @Setter
     private Instant createdDate;
+
     /* Fetches the date the task was modified at */
     @Getter
     @Setter
@@ -58,11 +59,16 @@ public class PlanKueueItem {
     @Getter
     @Setter
     private String dueDate;
-    /* Fetches the amount of points the assignment is worth */
 
+    /* Fetches the amount of points the assignment is worth */
     @Getter
     @Setter
     private double assignmentPoints;
+
+    @Getter
+    @Setter
+    private double earnedPoints;
+
     /* Fetches a note if it was added to the task */
     @Getter
     @Setter
@@ -93,6 +99,8 @@ public class PlanKueueItem {
         this.modifiedDate = Instant.now();
         this.dueDate = "";
         this.assignmentPoints = 0.0;
+        this.earnedPoints = 0.0;
+
         this.taskNote = "";
 
     }

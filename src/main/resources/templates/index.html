@@ -29,6 +29,8 @@
             <th>Created Date</th>
             <th>Modified Date</th>
             <th>Due Date</th>
+            <th>Possible Points</th>
+            <th>Earned Points</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +56,8 @@
             <td th:text="${item.createdDate}">created_date</td>
             <td th:text="${item.modifiedDate}">modified_date</td>
             <td th:text="${item.dueDate}">modified_date</td>
+            <td th:text="${item.assignmentPoints}">assignment_points</td>
+            <td th:text="${item.earnedPoints}">earned_points</td>
           </tr>
         </tbody>
       </table>

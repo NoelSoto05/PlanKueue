@@ -45,6 +45,16 @@
               th:errors="*{description}"
             ></span>
 
+            <div class="form-group">
+              <label for="assignmentPoints">Points</label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="*{assignmentPoints}"
+                id="assignmentPoints"
+                placeholder="Total possible points"/>
+            </div>
+
             <hr class="no-line" />
             <label for="dueDate">Select Due Date</label>
 
