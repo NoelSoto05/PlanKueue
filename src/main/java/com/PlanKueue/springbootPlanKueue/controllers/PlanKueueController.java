@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.PlanKueue.springbootPlanKueue.models.CourseItem;
 import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
+import com.PlanKueue.springbootPlanKueue.repository.CourseItemRepository;
 import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
 
 import jakarta.validation.Valid;
@@ -25,6 +27,9 @@ public class PlanKueueController {
 
     @Autowired
     private PlanKueueItemRepository planKueueItemRepository;
+
+    @Autowired
+    private CourseItemRepository courseItemRepository;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -68,4 +73,22 @@ public class PlanKueueController {
 
     }
 
+    @PostMapping("/courseAssignment")
+    public String createCourseAssignment(@Valid CourseItem courseItem, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "add-course-item";
+        }
+        courseItemRepository.save(courseItem);
+        return "redirect:/";
+    }
+
+    @PostMapping("/courseAssignment{courseId}")
+    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid CourseItem courseItem, BindingResult result, Model model){
+        if (result.hasErrors()){
+            courseItem.setCourseId(courseId);
+            return "update-course-item";
+        }
+        courseItemRepository.save(courseItem);
+        return "redirect:/";
+    }
 }

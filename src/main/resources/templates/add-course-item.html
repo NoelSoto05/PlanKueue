@@ -24,26 +24,26 @@
   <body>
     <div class="container">
       <div class="col-md-6">
-        <h1>Add a new Todo Item</h1>
+        <h1>Add a New Assignment</h1>
         <form
           action="#"
-          th:action="@{/todo}"
-          th:object="${planKueueItem}"
+          th:action="@{/courseAssignment}"
+          th:object="${courseItem}"
           method="POST"
         >
           <div class="form-group">
-            <label for="description">Description</label>
+            <label for="name">Assignment</label>
             <input
               class="form-control"
               type="text"
-              th:field="*{description}"
-              id="description"
-              placeholder="Description"
+              th:field="*{name}"
+              id="name"
+              placeholder="Course Name"
             />
             <span
-              th:if="${#fields.hasErrors('description')}"
-              th:errors="*{description}"
-            ></span>
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}"
+            ></span> 
 
             <hr class="no-line" />
             <label for="dueDate">Select Due Date</label>
@@ -61,7 +61,7 @@
             </script>
           </div>
 
-          <button type="submit" class="btn btn-success">Add Todo!</button>
+          <button type="submit" class="btn btn-success">Add Course Assignment</button>
         </form>
       </div>
     </div>

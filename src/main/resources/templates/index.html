@@ -29,8 +29,6 @@
             <th>Created Date</th>
             <th>Modified Date</th>
             <th>Due Date</th>
-            <th>Possible Points</th>
-            <th>Earned Points</th>
           </tr>
         </thead>
         <tbody>
@@ -56,15 +54,19 @@
             <td th:text="${item.createdDate}">created_date</td>
             <td th:text="${item.modifiedDate}">modified_date</td>
             <td th:text="${item.dueDate}">modified_date</td>
-            <td th:text="${item.assignmentPoints}">assignment_points</td>
-            <td th:text="${item.earnedPoints}">earned_points</td>
           </tr>
         </tbody>
       </table>
-      <p><a class="btn btn-success" href="/create-todo"> Add a Todo!</a></p>
+      <p>
+        <a class="btn btn-success" href="/create-todo">Add a Task or Event</a>
+<!-- BUTTON TO ACCESS ADD COURSE PAGE -> MOVE TO APPROPRIATE LOCATION LATER
+        <a class="btn btn-success" href="/add-course">Add an Assignment</a> -->
+      </p>
     </div>
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+
+
   </body>
 </html>

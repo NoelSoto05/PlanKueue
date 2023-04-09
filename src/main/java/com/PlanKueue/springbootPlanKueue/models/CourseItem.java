@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
+//Assignments
 @Entity
 @Table(name = "Course_Item")
 public class CourseItem {
@@ -24,11 +25,24 @@ public class CourseItem {
 
     @Getter
     @Setter
+    @NotBlank(message = "Name cannot be empty")
     private String name;
 
     @Getter
     @Setter
-    private double grade = 0.0;
+    private double grade;
+
+    @Getter
+    @Setter
+    private String dueDate;
+
+    @Getter
+    @Setter
+    private double possiblePoints;
+
+    @Getter
+    @Setter
+    private double earnedPoints;
 
     //Array of categories belonging to the course
     //private ArrayList<CategoryItem> categoryList = new ArrayList<CategoryItem>(10);
@@ -39,8 +53,13 @@ public class CourseItem {
     //Parameterized constructor
     public CourseItem(String name){
         this.name = name;
+        this.grade = 0.0;
+        this.possiblePoints = 0.0;
+        this.earnedPoints = 0.0;
+        this.dueDate = "";
     }
 
+    //Functionality for pure java
     //Adds category to categoryList if category doesn't exist
 /* 
     public void addCategory(String categoryName){

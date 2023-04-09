@@ -11,6 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
+//Events + outside Tasks
 @Entity
 @Table(name = "PlanKueue_Item")
 public class PlanKueueItem {
@@ -60,15 +61,6 @@ public class PlanKueueItem {
     @Setter
     private String dueDate;
 
-    /* Fetches the amount of points the assignment is worth */
-    @Getter
-    @Setter
-    private double assignmentPoints;
-
-    @Getter
-    @Setter
-    private double earnedPoints;
-
     /* Fetches a note if it was added to the task */
     @Getter
     @Setter
@@ -98,8 +90,6 @@ public class PlanKueueItem {
         this.createdDate = Instant.now();
         this.modifiedDate = Instant.now();
         this.dueDate = "";
-        this.assignmentPoints = 0.0;
-        this.earnedPoints = 0.0;
 
         this.taskNote = "";
 
