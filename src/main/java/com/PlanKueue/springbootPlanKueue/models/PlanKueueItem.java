@@ -17,7 +17,6 @@ public class PlanKueueItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     /*
      * FYI:
      * 
@@ -74,16 +73,18 @@ public class PlanKueueItem {
     }
 
     /**
+     * Creates a new instance of the {@code PlanKueueItem} class with the specified
+     * description of the task or event.
      * 
+     * @param description the description of the plan kueue item
      * 
-     * Main constructor which initiates multiple variables that are needed to create
-     * and item or task in the planner
-     * A description of the item needs to be passed in to create a new item.
-     * Initializes complete as false;
-     * initializes createDate to current time
-     * initializes modifiedDate to current time
-     * 
-     * @param description
+     *                    Initializes the following fields:
+     *                    - {@link #complete} to false
+     *                    - {@link #createdDate} to the current date and time
+     *                    - {@link #modifiedDate} to the current date and time
+     *                    - {@link #dueDate} to an empty string
+     *                    - {@link #assignmentPoints} to 0.0
+     *                    - {@link #taskNote} to an empty string
      */
     public PlanKueueItem(String description) {
 
@@ -97,14 +98,10 @@ public class PlanKueueItem {
 
     }
 
-    /*
-     * Here we are overidding the string method so that the system knows how to
-     * display all the data we just assined.
-     */
     @Override
     public String toString() {
         return String.format(
-                "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate= '%s', modifiedDate ='%s'}",
+                "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate = '%s', modifiedDate ='%s', dueDate = %s}",
                 id, description, complete, createdDate, modifiedDate, dueDate);
     }
 
