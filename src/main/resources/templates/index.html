@@ -34,8 +34,7 @@
         <tbody>
           <tr
             th:each="item: ${PlannerItems}"
-            th:class="${item.complete} ? success : warning"
-          >
+            th:class="${item.complete} ? success : warning">
             <td>
               <div class="btn btn-group-sm" role="group">
                 <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}"
@@ -57,10 +56,50 @@
           </tr>
         </tbody>
       </table>
-      <p><a class="btn btn-success" href="/create-todo"> Add a Todo!</a></p>
+      <p>
+        <a class="btn btn-success" href="/create-todo">Add Event</a>
+        <!--ADD COURSE STILL NEEDS TO BE IMPLEMENTED-->
+        <a class="btn btn-success" href="/placeholder">Add Course</a>
+        <a class="btn btn-success" href="/add-course">Add Assignment</a>
+      </p>
+    </div>
+
+    <div class="container" style="border: none;">
+      <div class="left-column container" style="float: left; width: 50%; border-radius: 0;">
+        <p>
+          <h1 class="text-left">Current Courses</h1>
+          <h1 class="no-line"></h1>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+          </table>
+        </p>
+      </div>
+      <div class="right-column container" style="float: right; width: 45%; border-radius: 0;">
+        <p>
+          <h1 class="text-left">Due Today</h1>
+          <h1 class="no-line"></h1>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Potential Points</th>
+              </tr>
+            </thead>
+          </table>
+        </p>
+      </div>
+      <div style="clear: both;"></div>
     </div>
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+
+
   </body>
 </html>
