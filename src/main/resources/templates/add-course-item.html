@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} "
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/addItemPageProperties.css}"
+    />
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="col-md-6">
+        <h1>Add a New Assignment</h1>
+        <form
+          action="#"
+          th:action="@{/courseAssignment}"
+          th:object="${courseItem}"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="name">Assignment</label>
+            <input
+              class="form-control"
+              type="text"
+              th:field="*{name}"
+              id="name"
+              placeholder="Course Name"
+            />
+            <span
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}"
+            ></span> 
+
+            <div class="form-group">
+              <label for="name">Points</label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="*{possiblePoints}"
+                id="name"
+                placeholder="0.0"
+              />
+              <span
+                th:if="${#fields.hasErrors('possiblePoints')}"
+                th:errors="*{possiblePoints}"
+              ></span> 
+
+            <hr class="no-line" />
+            <label for="dueDate">Select Due Date</label>
+
+            <input
+              type="text"
+              th:field="*{dueDate}"
+              id="dueDate"
+              placeholder="MM/DD/YYYY"
+            />
+            <script>
+              $(function () {
+                $("#dueDate").datepicker();
+              });
+            </script>
+          </div>
+
+          <button type="submit" class="btn btn-success">Add Course Assignment</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
