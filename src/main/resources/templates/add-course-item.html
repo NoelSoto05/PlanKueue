@@ -45,6 +45,20 @@
               th:errors="*{name}"
             ></span> 
 
+            <div class="form-group">
+              <label for="name">Points</label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="*{possiblePoints}"
+                id="name"
+                placeholder="0.0"
+              />
+              <span
+                th:if="${#fields.hasErrors('possiblePoints')}"
+                th:errors="*{possiblePoints}"
+              ></span> 
+
             <hr class="no-line" />
             <label for="dueDate">Select Due Date</label>
 
