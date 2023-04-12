@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.PlanKueue.springbootPlanKueue.models.CourseItem;
+import com.PlanKueue.springbootPlanKueue.models.CourseAssignment;
 import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
-import com.PlanKueue.springbootPlanKueue.repository.CourseItemRepository;
+import com.PlanKueue.springbootPlanKueue.repository.CourseAssignmentRepository;
 import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
 
 import jakarta.validation.Valid;
@@ -29,12 +29,13 @@ public class PlanKueueController {
     private PlanKueueItemRepository planKueueItemRepository;
 
     @Autowired
-    private CourseItemRepository courseItemRepository;
+    private CourseAssignmentRepository courseItemRepository;
 
     @GetMapping("/")
     public ModelAndView index() {
 
-        //this logger is at info level and will display the information in the parameter when this call is ran
+        // this logger is at info level and will display the information in the
+        // parameter when this call is ran
         logger.debug("Request to GET index page");
         ModelAndView modelAndView = new ModelAndView("index");
 
@@ -44,17 +45,18 @@ public class PlanKueueController {
 
         return modelAndView;
     }
-    @PostMapping("/todo")
-    public String createTodoItem(@Valid PlanKueueItem todoItem, BindingResult result, Model model){
 
-        if(result.hasErrors()){
+    @PostMapping("/todo")
+    public String createTodoItem(@Valid PlanKueueItem todoItem, BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
             return "add-todo-item";
         }
 
         todoItem.setCreatedDate(Instant.now());
         todoItem.setModifiedDate(Instant.now());
         planKueueItemRepository.save(todoItem);
-        
+
         return "redirect:/";
     }
 
@@ -74,19 +76,20 @@ public class PlanKueueController {
     }
 
     @PostMapping("/courseAssignment")
-    public String createCourseAssignment(@Valid CourseItem courseItem, BindingResult result, Model model){
-        if (result.hasErrors()){
-            return "add-course-item";
+    public String createCourseAssignment(@Valid CourseAssignment courseItem, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-assignment";
         }
         courseItemRepository.save(courseItem);
         return "redirect:/";
     }
 
     @PostMapping("/courseAssignment{courseId}")
-    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid CourseItem courseItem, BindingResult result, Model model){
-        if (result.hasErrors()){
+    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid CourseAssignment courseItem,
+            BindingResult result, Model model) {
+        if (result.hasErrors()) {
             courseItem.setCourseId(courseId);
-            return "update-course-item";
+            return "update-assignment";
         }
         courseItemRepository.save(courseItem);
         return "redirect:/";

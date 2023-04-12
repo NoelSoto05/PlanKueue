@@ -28,7 +28,7 @@
         <form
           action="#"
           th:action="@{/courseAssignment}"
-          th:object="${courseItem}"
+          th:object="${courseAssignment}"
           method="POST"
         >
           <div class="form-group">
@@ -38,7 +38,7 @@
               type="text"
               th:field="*{name}"
               id="name"
-              placeholder="Course Name"
+              placeholder="Assignment Name"
             />
             <span
               th:if="${#fields.hasErrors('name')}"

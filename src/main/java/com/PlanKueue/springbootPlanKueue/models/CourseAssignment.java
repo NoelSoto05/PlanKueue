@@ -14,9 +14,9 @@ import lombok.Setter;
 
 //Assignments
 @Entity
-@Table(name = "Course_Item")
-public class CourseItem {
-    
+@Table(name = "Course_Assignment")
+public class CourseAssignment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -44,14 +44,16 @@ public class CourseItem {
     @Setter
     private double earnedPoints;
 
-    //Array of categories belonging to the course
-    //private ArrayList<CategoryItem> categoryList = new ArrayList<CategoryItem>(10);
+    // Array of categories belonging to the course
+    // private ArrayList<CategoryItem> categoryList = new
+    // ArrayList<CategoryItem>(10);
 
-    //Default constructor
-    public CourseItem(){}
+    // Default constructor
+    public CourseAssignment() {
+    }
 
-    //Parameterized constructor
-    public CourseItem(String name){
+    // Parameterized constructor
+    public CourseAssignment(String name) {
         this.name = name;
         this.grade = 0.0;
         this.possiblePoints = 0.0;
@@ -59,24 +61,24 @@ public class CourseItem {
         this.dueDate = "";
     }
 
-    //Functionality for pure java
-    //Adds category to categoryList if category doesn't exist
-/* 
-    public void addCategory(String categoryName){
-        int index = inList(categoryName);
-        if (index == -1){
-            CategoryItem newCategory = new CategoryItem(categoryName);
-            categoryList.add(newCategory);
-        }
-    }
-
-    private int inList(String taskName){
-        int at = -1;
-        for (int i = 0; i < categoryList.size(); i++){
-            if (categoryList.get(i).getCategoryName().equals(taskName))
-                at = i;
-        }
-        return at;
-    }
-*/
+    // Functionality for pure java
+    // Adds category to categoryList if category doesn't exist
+    /*
+     * public void addCategory(String categoryName){
+     * int index = inList(categoryName);
+     * if (index == -1){
+     * CategoryItem newCategory = new CategoryItem(categoryName);
+     * categoryList.add(newCategory);
+     * }
+     * }
+     * 
+     * private int inList(String taskName){
+     * int at = -1;
+     * for (int i = 0; i < categoryList.size(); i++){
+     * if (categoryList.get(i).getCategoryName().equals(taskName))
+     * at = i;
+     * }
+     * return at;
+     * }
+     */
 }
