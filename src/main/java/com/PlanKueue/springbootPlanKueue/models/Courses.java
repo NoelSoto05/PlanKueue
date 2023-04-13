@@ -13,7 +13,7 @@ public class Courses {
 
     @Getter
     @Setter
-    private Long id;
+    private Long courseId;
 
     @Getter
     @Setter
@@ -46,7 +46,7 @@ public class Courses {
     public String toString() {
         return String.format(
                 "Courses{id='%d', courseName = '%s', currentCourseGrade = '%d', desiredCourseGrade = '%d'}",
-                id, courseName, currentCourseGrade, desiredCourseGrade);
+                courseId, courseName, currentCourseGrade, desiredCourseGrade);
 
     }
 

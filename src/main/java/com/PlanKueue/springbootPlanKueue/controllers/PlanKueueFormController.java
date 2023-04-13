@@ -27,7 +27,6 @@ public class PlanKueueFormController {
     }
 
     @GetMapping("/edit/{id}")
-
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         PlanKueueItem plannerItem = planKueueItemRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("TodoItem id: " + id + " not found"));

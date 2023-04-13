@@ -21,7 +21,7 @@ public class CourseAssignment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private Long courseId;
+    private Long assignmentId;
 
     @Getter
     @Setter

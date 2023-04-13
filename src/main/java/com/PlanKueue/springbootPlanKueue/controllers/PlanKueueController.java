@@ -84,11 +84,11 @@ public class PlanKueueController {
         return "redirect:/";
     }
 
-    @PostMapping("/courseAssignment{courseId}")
+    @PostMapping("/courseAssignment/{courseId}")
     public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid CourseAssignment courseItem,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
-            courseItem.setCourseId(courseId);
+            courseItem.setAssignmentId(courseId);
             return "update-assignment";
         }
         courseItemRepository.save(courseItem);

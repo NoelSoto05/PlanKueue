@@ -12,6 +12,8 @@
 
   <body>
     <div class="container"></div>
+    <h1 class="text-center">Update Event</h1>
+    <hr class="no-line" />
     <div class="col-md-6">
       <form
         action="#"
@@ -27,6 +29,10 @@
             th:field="*{description}"
             placeholder="Add a description"
           />
+          <span
+          th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"
+        ></span>
         </div>
         <div class="checkbox">
           <label

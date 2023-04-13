@@ -24,7 +24,7 @@ public class AssignmentFormController {
         return "add-assignment";
     }
 
-    @GetMapping("/edit/{courseId}")
+    @GetMapping("/editAssignment/{courseId}")
     public String showUpdateForm(@PathVariable("assignmentId") long courseId, Model model) {
         CourseAssignment courseAssignment = courseAssignmentRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("assignemnt id: " + courseId + " not found"));
@@ -34,7 +34,7 @@ public class AssignmentFormController {
 
     }
 
-    @GetMapping("/delete/{courseId}")
+    @GetMapping("/deleteAssignment/{courseId}")
     public String deleteTodoItem(@PathVariable("assignmentId") long courseId, Model model) {
         CourseAssignment courseAssignment = courseAssignmentRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Assignment id: " + courseId + " not found"));
