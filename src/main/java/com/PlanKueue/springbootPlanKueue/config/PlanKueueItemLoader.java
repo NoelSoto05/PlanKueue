@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
-import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
+import com.PlanKueue.springbootPlanKueue.models.Event;
+import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
 @Component
 public class PlanKueueItemLoader implements CommandLineRunner {
@@ -15,7 +15,7 @@ public class PlanKueueItemLoader implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(PlanKueueItemLoader.class);
 
     @Autowired
-    PlanKueueItemRepository planKueueItemRepository;
+    EventRepository planKueueItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -29,8 +29,8 @@ public class PlanKueueItemLoader implements CommandLineRunner {
      */
     private void loadSeedData() {
         if (planKueueItemRepository.count() == 0) {
-            PlanKueueItem plannerItem1 = new PlanKueueItem("Calc 2: Integrals Homework");
-            PlanKueueItem plannerItem2 = new PlanKueueItem("IT279: Customer Line Queue");
+            Event plannerItem1 = new Event("Calc 2: Integrals Homework");
+            Event plannerItem2 = new Event("IT279: Customer Line Queue");
 
             planKueueItemRepository.save(plannerItem1);
             planKueueItemRepository.save(plannerItem2);

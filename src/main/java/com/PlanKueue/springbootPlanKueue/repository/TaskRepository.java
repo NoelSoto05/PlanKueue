@@ -2,7 +2,7 @@ package com.PlanKueue.springbootPlanKueue.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.PlanKueue.springbootPlanKueue.models.CourseAssignment;
+import com.PlanKueue.springbootPlanKueue.models.Task;
 
 //By having a CRUD repository it is easier to (Create, Read, Update, Delete) operations on the data stored without having to write the underlying persistence logic. 
 /**
@@ -12,6 +12,6 @@ import com.PlanKueue.springbootPlanKueue.models.CourseAssignment;
  * deleteById(): deletes an entity by its primary key
  * 
  */
-public interface CourseAssignmentRepository extends CrudRepository<CourseAssignment, Long> {
+public interface TaskRepository extends CrudRepository<Task, Long> {
 
 }

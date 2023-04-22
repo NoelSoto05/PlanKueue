@@ -15,7 +15,7 @@ import lombok.Setter;
 //Assignments
 @Entity
 @Table(name = "Course_Assignment")
-public class CourseAssignment {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,11 +49,11 @@ public class CourseAssignment {
     // ArrayList<CategoryItem>(10);
 
     // Default constructor
-    public CourseAssignment() {
+    public Task() {
     }
 
     // Parameterized constructor
-    public CourseAssignment(String name) {
+    public Task(String name) {
         this.name = name;
         this.grade = 0.0;
         this.possiblePoints = 0.0;

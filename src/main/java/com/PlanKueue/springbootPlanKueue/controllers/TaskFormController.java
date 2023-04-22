@@ -8,19 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
-import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
+import com.PlanKueue.springbootPlanKueue.models.Event;
+import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
 @Controller
-public class PlanKueueFormController {
+public class TaskFormController {
 
-    private final Logger logger = LoggerFactory.getLogger(PlanKueueFormController.class);
+    private final Logger logger = LoggerFactory.getLogger(TaskFormController.class);
 
     @Autowired
-    private PlanKueueItemRepository planKueueItemRepository;
+    private EventRepository planKueueItemRepository;
 
     @GetMapping("/create-todo")
-    public String showCreateForm(PlanKueueItem todoItem) {
+    public String showCreateForm(Event todoItem) {
 
         return "add-todo-item";
 
@@ -28,7 +28,7 @@ public class PlanKueueFormController {
 
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
-        PlanKueueItem plannerItem = planKueueItemRepository.findById(id)
+        Event plannerItem = planKueueItemRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("TodoItem id: " + id + " not found"));
 
         model.addAttribute("todo", plannerItem);
@@ -38,7 +38,7 @@ public class PlanKueueFormController {
 
     @GetMapping("/delete/{id}")
     public String deleteTodoItem(@PathVariable("id") long id, Model model) {
-        PlanKueueItem todoItem = planKueueItemRepository.findById(id)
+        Event todoItem = planKueueItemRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("TodoItem id: " + id + " not found"));
 
         planKueueItemRepository.delete(todoItem);

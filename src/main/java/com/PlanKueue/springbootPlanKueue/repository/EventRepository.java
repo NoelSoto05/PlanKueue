@@ -2,7 +2,7 @@ package com.PlanKueue.springbootPlanKueue.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
+import com.PlanKueue.springbootPlanKueue.models.Event;
 
 //By having a CRUD repository it is easier to (Create, Read, Update, Delete) operations on the data stored without having to write the underlying persistence logic. 
 /**
@@ -12,6 +12,6 @@ import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
  * deleteById(): deletes an entity by its primary key
  * 
  */
-public interface PlanKueueItemRepository extends CrudRepository<PlanKueueItem, Long> {
+public interface EventRepository extends CrudRepository<Event, Long> {
 
 }

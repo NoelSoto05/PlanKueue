@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.PlanKueue.springbootPlanKueue.models.CourseAssignment;
-import com.PlanKueue.springbootPlanKueue.models.PlanKueueItem;
-import com.PlanKueue.springbootPlanKueue.repository.CourseAssignmentRepository;
-import com.PlanKueue.springbootPlanKueue.repository.PlanKueueItemRepository;
+import com.PlanKueue.springbootPlanKueue.models.Task;
+import com.PlanKueue.springbootPlanKueue.models.Event;
+import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
+import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
 import jakarta.validation.Valid;
 
 //this declares this class as a controller
 @Controller
-public class PlanKueueController {
-    private final Logger logger = LoggerFactory.getLogger(PlanKueueController.class);
+public class TaskController {
+    private final Logger logger = LoggerFactory.getLogger(TaskController.class);
 
     @Autowired
-    private PlanKueueItemRepository planKueueItemRepository;
+    private EventRepository planKueueItemRepository;
 
     @Autowired
-    private CourseAssignmentRepository courseItemRepository;
+    private TaskRepository courseItemRepository;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -47,7 +47,7 @@ public class PlanKueueController {
     }
 
     @PostMapping("/todo")
-    public String createTodoItem(@Valid PlanKueueItem todoItem, BindingResult result, Model model) {
+    public String createTodoItem(@Valid Event todoItem, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             return "add-todo-item";
@@ -61,7 +61,7 @@ public class PlanKueueController {
     }
 
     @PostMapping("/todo/{id}")
-    public String updateTodoItem(@PathVariable("id") long id, @Valid PlanKueueItem todoItem, BindingResult result,
+    public String updateTodoItem(@PathVariable("id") long id, @Valid Event todoItem, BindingResult result,
             Model model) {
         if (result.hasErrors()) {
             todoItem.setId(id);
@@ -76,7 +76,7 @@ public class PlanKueueController {
     }
 
     @PostMapping("/courseAssignment")
-    public String createCourseAssignment(@Valid CourseAssignment courseItem, BindingResult result, Model model) {
+    public String createCourseAssignment(@Valid Task courseItem, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-assignment";
         }
@@ -85,7 +85,7 @@ public class PlanKueueController {
     }
 
     @PostMapping("/courseAssignment/{courseId}")
-    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid CourseAssignment courseItem,
+    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid Task courseItem,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
             courseItem.setAssignmentId(courseId);

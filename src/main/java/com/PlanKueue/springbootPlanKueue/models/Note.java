@@ -28,11 +28,11 @@ public class Note {
 //         EVENT, OR NOTE, OR NOTHING, DIFFERENTIATE SOMEHOW
     @ManyToOne
     @JoinColumn(name = "not_assignmentID", referencedColumnName = "assignmentId")
-    private CourseAssignment not_assignmentId;
+    private Task not_assignmentId;
 
     @ManyToOne
     @JoinColumn(name = "not_iD", referencedColumnName = "id")
-    private PlanKueueItem not_id;
+    private Event not_id;
 
     @ManyToOne
     @JoinColumn(name = "not_accountId", referencedColumnName = "accountId")

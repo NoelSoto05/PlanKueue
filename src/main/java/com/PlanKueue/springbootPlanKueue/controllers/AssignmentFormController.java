@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.PlanKueue.springbootPlanKueue.models.CourseAssignment;
-import com.PlanKueue.springbootPlanKueue.repository.CourseAssignmentRepository;
+import com.PlanKueue.springbootPlanKueue.models.Task;
+import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 
 @Controller
 public class AssignmentFormController {
@@ -17,16 +17,16 @@ public class AssignmentFormController {
     private final Logger logger = LoggerFactory.getLogger(AssignmentFormController.class);
 
     @Autowired
-    private CourseAssignmentRepository courseAssignmentRepository;
+    private TaskRepository courseAssignmentRepository;
 
     @GetMapping("/add-assignment")
-    public String showCreateForm(CourseAssignment courseAssignment) {
+    public String showCreateForm(Task courseAssignment) {
         return "add-assignment";
     }
 
     @GetMapping("/editAssignment/{courseId}")
     public String showUpdateForm(@PathVariable("assignmentId") long courseId, Model model) {
-        CourseAssignment courseAssignment = courseAssignmentRepository.findById(courseId)
+        Task courseAssignment = courseAssignmentRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("assignemnt id: " + courseId + " not found"));
 
         model.addAttribute("courseAssignment", courseAssignment);
@@ -36,7 +36,7 @@ public class AssignmentFormController {
 
     @GetMapping("/deleteAssignment/{courseId}")
     public String deleteTodoItem(@PathVariable("assignmentId") long courseId, Model model) {
-        CourseAssignment courseAssignment = courseAssignmentRepository.findById(courseId)
+        Task courseAssignment = courseAssignmentRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Assignment id: " + courseId + " not found"));
 
         courseAssignmentRepository.delete(courseAssignment);

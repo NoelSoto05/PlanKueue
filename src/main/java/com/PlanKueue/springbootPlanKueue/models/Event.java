@@ -14,7 +14,7 @@ import lombok.Setter;
 //Events + outside Tasks
 @Entity
 @Table(name = "PlanKueue_Item")
-public class PlanKueueItem {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -66,7 +66,7 @@ public class PlanKueueItem {
     private String taskNote;
 
     // empty default constructor
-    public PlanKueueItem() {
+    public Event() {
 
     }
 
@@ -84,7 +84,7 @@ public class PlanKueueItem {
      *                    - {@link #assignmentPoints} to 0.0
      *                    - {@link #taskNote} to an empty string
      */
-    public PlanKueueItem(String description) {
+    public Event(String description) {
 
         this.description = description;
         this.complete = false;
