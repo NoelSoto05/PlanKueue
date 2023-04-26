@@ -20,7 +20,7 @@ These are needed to compile and run the PlanKueue Application
 - [X]Deleting a task
 - [X]Editing a task
 - [X]Due date 
-- []Add course
+- [X]Add course
 - []Set task recurrence
 - []Task specific notes
 - []General notes section
@@ -29,9 +29,9 @@ These are needed to compile and run the PlanKueue Application
 - []Calculate grade
 - []Calculate required grade
 - []??Register Acc??
-- []Add an Event non assignment related
-- []update event
-- []remove event
+- [X]Add an Event non assignment related
+- [X]update event
+- [X]remove event
 - []Generate priority list for assignments
 - []Generate priority list for general tasks 
 - []Generate course priority list
