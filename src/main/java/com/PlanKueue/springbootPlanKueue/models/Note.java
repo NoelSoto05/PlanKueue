@@ -24,8 +24,44 @@ public class Note {
     @Setter
     private String noteDesc;
 
+<<<<<<< HEAD
     //Default Constructor
     public Note(String contents) {
         noteDesc = contents;
+=======
+    @ManyToOne
+    @JoinColumn(name = "task_id", referencedColumnName = "assignmentId")
+    private Task task;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id", referencedColumnName = "id")
+    private Event event;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "accountId")
+    private Account account;
+
+    //Default Constructor
+    public Note() {}
+
+    //Parameterized Constructor attached to account
+    public Note(String noteDesc, Account account){
+        this.noteDesc = noteDesc;
+        this.account = account;
+    }
+
+    //Parameterized Constructor attached to task
+    public Note(String noteDesc, Task task, Account account){
+        this.noteDesc = noteDesc;
+        this.task = task;
+        this.account = account;
+>>>>>>> a864f20cc91f076f4b7b67c219c031d76b29afbf
+    }
+
+    //Parameterized Constructor attached to event
+    public Note(String noteDesc, Event event, Account account){
+        this.noteDesc = noteDesc;
+        this.event = event;
+        this.account = account;
     }
 }

@@ -72,8 +72,7 @@
       </style>
       <p style = "text-align: left;">
         <a class="btn btn-success" href="/create-todo">Add Event</a>
-        <!--ADD COURSE STILL NEEDS TO BE IMPLEMENTED-->
-        <a class="btn btn-success" href="/placeholder">Add Course</a>
+        <a class="btn btn-success" href="/add-course">Add Course</a>
         <a class="btn btn-success" href="/add-assignment">Add Assignment</a>
       </p>
     </div>
@@ -90,6 +89,25 @@
                 <th>Grade</th>
               </tr>
             </thead>
+            <tbody>
+              <tr
+              th:each="course: ${CourseItems}"
+              th:class="${course.complete} ? success : warning">
+              <td>
+                <div class="btn btn-group-sm" role="group">
+                  <a class="btn btn-info" th:href="@{/editCourse/{id}(id=${course.courseId})}"
+                    >Edit</a>
+                  <a
+                    class="btn btn-danger"
+                    th:href="@{/deleteCourse/{id}(id=${course.courseId})}"
+                    >Delete</a
+                  >
+                </div>
+              </td>
+              <td th:text="${course.courseName}">course_name</td>
+              <td th:text="${course.currentCourseGrade}">course_grade</td>
+            </tr>
+            </tbody>
           </table>
         </p>
       </div>
@@ -113,7 +131,6 @@
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
-
 
   </body>
 </html>
