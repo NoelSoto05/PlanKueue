@@ -17,42 +17,60 @@
 
   <body>
     <div class="container">
-      <h1 class="text-center">To Do</h1>
-      <hr class="no-line" />
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Actions</th>
-            <th>Id</th>
-            <th>Description</th>
-            <th>Complete</th>
-            <th>Due Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            th:each="item: ${PlannerItems}"
-            th:class="${item.complete} ? success : warning">
-            <td>
-              <div class="btn btn-group-sm" role="group">
-                <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}"
-                  >Edit</a
-                >
-                <a
-                  class="btn btn-danger"
-                  th:href="@{/delete/{id}(id=${item.id})}"
-                  >Delete</a
-                >
-              </div>
-            </td>
-            <td th:text="${item.id}">item_id</td>
-            <td th:text="${item.description}">item_description</td>
-            <td th:text="${item.complete}">item_completed</td>
-            <td th:text="${item.dueDate}">modified_date</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
+      <div class="left-column container" style="float: left; width: 75%; border-radius: 0; height: 500px; overflow-y: scroll;">
+        <h1 class="text-center">To Do</h1>
+        <hr class="no-line" />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Actions</th>
+              <th>Id</th>
+              <th>Description</th>
+              <th>Complete</th>
+              <th>Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              th:each="item: ${PlannerItems}"
+              th:class="${item.complete} ? success : warning">
+              <td>
+                <div class="btn btn-group-sm" role="group">
+                  <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}"
+                    >Edit</a>
+                  <a
+                    class="btn btn-danger"
+                    th:href="@{/delete/{id}(id=${item.id})}"
+                    >Delete</a>
+                </div>
+              </td>
+              <td th:text="${item.id}">item_id</td>
+              <td th:text="${item.description}">item_description</td>
+              <td th:text="${item.complete}">item_completed</td>
+              <td th:text="${item.dueDate}">modified_date</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="right-column container" style="float: right; width: 25%; border-radius: 0; height: 500px; overflow-y: scroll;">
+        <h1 class="text-center">Notes:</h1>
+        <textarea name="note" rows="20" style="width: 100%" th:value="${text}" oninput="updateText(event)"></textarea>
+      </div>
+      
+      <script>
+        function updateText(event) {
+          var newText = event.target.value;
+          localStorage.setItem("text", newText);
+        }
+      
+        // Load text from local storage when the page loads
+        var text = localStorage.getItem("text");
+        if (text) {
+          document.querySelector("textarea[name='note']").value = text;
+        }
+      </script>
+      </style>
+      <p style = "text-align: left;">
         <a class="btn btn-success" href="/create-todo">Add Event</a>
         <!--ADD COURSE STILL NEEDS TO BE IMPLEMENTED-->
         <a class="btn btn-success" href="/placeholder">Add Course</a>
