@@ -22,8 +22,8 @@ import jakarta.validation.Valid;
 
 //this declares this class as a controller
 @Controller
-public class TaskController {
-    private final Logger logger = LoggerFactory.getLogger(TaskController.class);
+public class EventController {
+    private final Logger logger = LoggerFactory.getLogger(EventController.class);
 
     @Autowired
     private EventRepository planKueueItemRepository;

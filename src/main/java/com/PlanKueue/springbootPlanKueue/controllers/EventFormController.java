@@ -12,9 +12,9 @@ import com.PlanKueue.springbootPlanKueue.models.Event;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
 @Controller
-public class TaskFormController {
+public class EventFormController {
 
-    private final Logger logger = LoggerFactory.getLogger(TaskFormController.class);
+    private final Logger logger = LoggerFactory.getLogger(EventFormController.class);
 
     @Autowired
     private EventRepository planKueueItemRepository;
