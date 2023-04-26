@@ -14,4 +14,7 @@ import com.PlanKueue.springbootPlanKueue.models.Task;
  */
 public interface TaskRepository extends CrudRepository<Task, Long> {
 
+
+
+
 }

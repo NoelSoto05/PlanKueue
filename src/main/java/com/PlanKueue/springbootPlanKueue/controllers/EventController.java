@@ -11,12 +11,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.PlanKueue.springbootPlanKueue.models.Task;
+import com.PlanKueue.springbootPlanKueue.models.Courses;
 import com.PlanKueue.springbootPlanKueue.models.Event;
+import com.PlanKueue.springbootPlanKueue.models.Note;
 import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
+import com.PlanKueue.springbootPlanKueue.repository.CourseRepository;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
+import com.PlanKueue.springbootPlanKueue.repository.NoteRepository;
 
 import jakarta.validation.Valid;
 
@@ -26,11 +31,19 @@ public class EventController {
     private final Logger logger = LoggerFactory.getLogger(EventController.class);
 
     @Autowired
+    private TaskRepository assignmentItemRepository;
+    private CourseRepository courseRepository;
     private EventRepository planKueueItemRepository;
 
+<<<<<<< HEAD
     @Autowired
     private TaskRepository courseItemRepository;
 
+    @Autowired
+    private NoteRepository noteRepository;
+
+=======
+>>>>>>> a864f20cc91f076f4b7b67c219c031d76b29afbf
     @GetMapping("/")
     public ModelAndView index() {
 
@@ -42,10 +55,12 @@ public class EventController {
         // pull all the items out of the database and adds them to a list object with
         // the key name PlannerItems
         modelAndView.addObject("PlannerItems", planKueueItemRepository.findAll());
+        modelAndView.addObject("CourseItems", courseRepository.findAll());
 
         return modelAndView;
     }
 
+//Events
     @PostMapping("/todo")
     public String createTodoItem(@Valid Event todoItem, BindingResult result, Model model) {
 
@@ -71,23 +86,51 @@ public class EventController {
 
     }
 
+//Tasks
     @PostMapping("/courseAssignment")
     public String createCourseAssignment(@Valid Task courseItem, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-assignment";
         }
-        courseItemRepository.save(courseItem);
+        assignmentItemRepository.save(courseItem);
         return "redirect:/";
     }
 
     @PostMapping("/courseAssignment/{courseId}")
-    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid Task courseItem,
+    public String updateCourseItem(@PathVariable("assignmentId") long assignmentId, @Valid Task assignmentItem,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
-            courseItem.setAssignmentId(courseId);
+            assignmentItem.setAssignmentId(assignmentId);
             return "update-assignment";
         }
-        courseItemRepository.save(courseItem);
+        assignmentItemRepository.save(assignmentItem);
+        return "redirect:/";
+    }
+
+//Courses
+    @PostMapping("/course")
+    public String createCourse(@Valid Courses course, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "add-course";
+        }
+        courseRepository.save(course);
+        return "redirect:/";
+    }
+
+    @PostMapping("/course{courseId}")
+    public String updateCourse(@PathVariable("courseId") long courseId, @Valid Courses courses, BindingResult result, Model model){
+        if (result.hasErrors()){
+            courses.setCourseId(courseId);
+            return "update-course";
+        }
+        courseRepository.save(courses);
+        return "redirect:/";
+    }
+
+    @PostMapping("/save")
+    public String saveText(@RequestParam("note") String text){
+        Note newNote = new Note(text);
+        noteRepository.save(newNote);
         return "redirect:/";
     }
 }
