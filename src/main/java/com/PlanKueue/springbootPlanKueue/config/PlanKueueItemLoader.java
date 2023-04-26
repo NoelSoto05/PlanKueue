@@ -15,7 +15,7 @@ public class PlanKueueItemLoader implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(PlanKueueItemLoader.class);
 
     @Autowired
-    EventRepository eventRepository;
+    EventRepository planKueueItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,17 +28,17 @@ public class PlanKueueItemLoader implements CommandLineRunner {
      * something in the database.
      */
     private void loadSeedData() {
-        if (eventRepository.count() == 0) {
-            Event plannerItem1 = new Event("Take out the Trash");
-            Event plannerItem2 = new Event("Taylor Swift Concert");
+        if (planKueueItemRepository.count() == 0) {
+            Event plannerItem1 = new Event("Calc 2: Integrals Homework");
+            Event plannerItem2 = new Event("IT279: Customer Line Queue");
 
-            eventRepository.save(plannerItem1);
-            eventRepository.save(plannerItem2);
+            planKueueItemRepository.save(plannerItem1);
+            planKueueItemRepository.save(plannerItem2);
 
         }
 
         // lets us know for debugging purposes how many items are in the Queue
-        logger.info("Number of PlanKueueItems: {}", eventRepository.count());
+        logger.info("Number of PlanKueueItems: {}", planKueueItemRepository.count());
 
     }
 
