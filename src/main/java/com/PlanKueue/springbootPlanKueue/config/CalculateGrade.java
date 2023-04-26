@@ -27,7 +27,7 @@ public class CalculateGrade
     @Getter
     @Setter
     private double calculatedGrade;
-
+Commited progress on all data sets
     /**
      * when we load our program we want to calculate the grade for the class
      * This should happen again once the user adds another assignment or task for that class
