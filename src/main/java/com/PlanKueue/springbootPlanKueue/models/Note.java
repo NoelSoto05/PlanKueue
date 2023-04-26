@@ -24,29 +24,38 @@ public class Note {
     @Setter
     private String noteDesc;
 
-// TO FIX: ADJUST TABLES, NEED BRIDGE NODE: NOTE CAN BE ATTACHED TO
-//         EVENT, OR NOTE, OR NOTHING, DIFFERENTIATE SOMEHOW
     @ManyToOne
-    @JoinColumn(name = "not_assignmentID", referencedColumnName = "assignmentId")
-    private Task not_assignmentId;
+    @JoinColumn(name = "task_id", referencedColumnName = "assignmentId")
+    private Task task;
 
     @ManyToOne
-    @JoinColumn(name = "not_iD", referencedColumnName = "id")
-    private Event not_id;
+    @JoinColumn(name = "event_id", referencedColumnName = "id")
+    private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "not_accountId", referencedColumnName = "accountId")
-    private Account not_accountId;
+    @JoinColumn(name = "account_id", referencedColumnName = "accountId")
+    private Account account;
 
     //Default Constructor
     public Note() {}
 
     //Parameterized Constructor attached to account
-    public Note(String noteDesc, Long not_accountId){
-        
+    public Note(String noteDesc, Account account){
+        this.noteDesc = noteDesc;
+        this.account = account;
     }
-    //Parameterized Constructor attached to something
-    public Note(String noteDesc, Long id, Long not_accountId){
 
+    //Parameterized Constructor attached to task
+    public Note(String noteDesc, Task task, Account account){
+        this.noteDesc = noteDesc;
+        this.task = task;
+        this.account = account;
+    }
+
+    //Parameterized Constructor attached to event
+    public Note(String noteDesc, Event event, Account account){
+        this.noteDesc = noteDesc;
+        this.event = event;
+        this.account = account;
     }
 }

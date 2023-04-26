@@ -17,4 +17,10 @@ public class Category {
     @Getter
     @Setter
     private Long categoryId;
+
+    private String categoryName;
+
+    private float percentage;
+
+
 }
