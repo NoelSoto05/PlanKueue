@@ -17,7 +17,7 @@
 
   <body>
     <div class="container">
-      <h1 class="text-center">PlanKueue List</h1>
+      <h1 class="text-center">To Do</h1>
       <hr class="no-line" />
       <table class="table table-bordered">
         <thead>
@@ -26,8 +26,6 @@
             <th>Id</th>
             <th>Description</th>
             <th>Complete</th>
-            <th>Created Date</th>
-            <th>Modified Date</th>
             <th>Due Date</th>
           </tr>
         </thead>
@@ -50,8 +48,6 @@
             <td th:text="${item.id}">item_id</td>
             <td th:text="${item.description}">item_description</td>
             <td th:text="${item.complete}">item_completed</td>
-            <td th:text="${item.createdDate}">created_date</td>
-            <td th:text="${item.modifiedDate}">modified_date</td>
             <td th:text="${item.dueDate}">modified_date</td>
           </tr>
         </tbody>

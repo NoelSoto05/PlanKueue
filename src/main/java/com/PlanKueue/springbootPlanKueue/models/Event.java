@@ -45,16 +45,6 @@ public class Event {
     @Setter
     private boolean complete;
 
-    /* Fetches the date the task is created */
-    @Getter
-    @Setter
-    private Instant createdDate;
-
-    /* Fetches the date the task was modified at */
-    @Getter
-    @Setter
-    private Instant modifiedDate;
-
     /* Fetches the due date for the assignment */
     @Getter
     @Setter
@@ -88,8 +78,6 @@ public class Event {
 
         this.description = description;
         this.complete = false;
-        this.createdDate = Instant.now();
-        this.modifiedDate = Instant.now();
         this.dueDate = "";
 
         this.taskNote = "";
@@ -99,8 +87,8 @@ public class Event {
     @Override
     public String toString() {
         return String.format(
-                "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate = '%s', modifiedDate ='%s', dueDate = %s}",
-                id, description, complete, createdDate, modifiedDate, dueDate);
+                "PlanKueueItem{id='%d', description = '%s', complete = '%s', dueDate = %s}",
+                id, description, complete, dueDate);
     }
 
 }

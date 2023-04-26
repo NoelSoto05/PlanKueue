@@ -53,8 +53,6 @@ public class EventController {
             return "add-todo-item";
         }
 
-        todoItem.setCreatedDate(Instant.now());
-        todoItem.setModifiedDate(Instant.now());
         planKueueItemRepository.save(todoItem);
 
         return "redirect:/";
@@ -67,8 +65,6 @@ public class EventController {
             todoItem.setId(id);
             return "update-todo-item";
         }
-
-        todoItem.setModifiedDate(Instant.now());
 
         planKueueItemRepository.save(todoItem);
         return "redirect:/";
