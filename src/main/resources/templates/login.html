@@ -133,7 +133,7 @@ span.psw {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="http://localhost:8080" method="GET">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -147,14 +147,14 @@ span.psw {
       <input type="password" placeholder="Enter Password" name="psw" required>
         
       <button type="submit">Login</button>
-      <label>
+      <button type="submit" onclick="window.location.href= 'http:localhost:8080'" ></button> <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      Don't have an account? <a href="/register">Register here</a>.</p>
     </div>
   </form>
 </div>
