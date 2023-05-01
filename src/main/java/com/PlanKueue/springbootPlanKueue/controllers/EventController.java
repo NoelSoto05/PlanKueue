@@ -9,13 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.PlanKueue.springbootPlanKueue.models.Task;
+import com.PlanKueue.springbootPlanKueue.models.Courses;
 import com.PlanKueue.springbootPlanKueue.models.Event;
 import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
+import com.PlanKueue.springbootPlanKueue.repository.CourseRepository;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
 import jakarta.validation.Valid;
@@ -30,6 +33,9 @@ public class EventController {
 
     @Autowired
     private TaskRepository courseItemRepository;
+
+    @Autowired
+    private CourseRepository courseRepository;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -94,4 +100,26 @@ public class EventController {
         courseItemRepository.save(courseItem);
         return "redirect:/";
     }
+    
+
+    @PostMapping("/course")
+    public String createCourse(@Valid @ModelAttribute("course") Courses course, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-course";
+        }
+        courseRepository.save(course);
+        return "redirect:/";
+    }
+
+    @PostMapping("/course/{courseId}")
+    public String updateCourse(@PathVariable("courseId") long courseId, @Valid Courses course,
+            BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            course.setCourseId(courseId);
+            return "update-course";
+        }
+        courseRepository.save(course);
+        return "redirect:/";
+    }
+
 }

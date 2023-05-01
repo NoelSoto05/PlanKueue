@@ -19,13 +19,13 @@ public class CourseFormController {
     @Autowired
     private CourseRepository courseRepository;
     @GetMapping("/add-course")
-    public String showCreateForm(Model model) {
+    public String showCreateCourseForm(Model model) {
         model.addAttribute("course", new Courses());
         return "add-course";
     }
 
     @GetMapping("/editCourse/{courseId}")
-    public String showUpdateForm(@PathVariable("courseId") long courseId, Model model) {
+    public String showUpdateCourseForm(@PathVariable("courseId") long courseId, Model model) {
         Courses course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Course id: " + courseId + " not found"));
 
@@ -35,7 +35,7 @@ public class CourseFormController {
     }
 
     @GetMapping("/deletecourse/{courseId}")
-    public String deleteTodoItem(@PathVariable("courseId") long courseId, Model model) {
+    public String deleteTodoCourseItem(@PathVariable("courseId") long courseId, Model model) {
         Courses course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Course id: " + courseId + " not found"));
 
