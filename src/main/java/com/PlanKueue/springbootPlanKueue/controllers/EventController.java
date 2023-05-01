@@ -32,6 +32,9 @@ public class EventController {
     private EventRepository planKueueItemRepository;
 
     @Autowired
+    private TaskRepository taskRepository;
+
+    @Autowired
     private TaskRepository courseItemRepository;
 
     @Autowired
@@ -49,6 +52,7 @@ public class EventController {
         // the key name PlannerItems
         modelAndView.addObject("PlannerItems", planKueueItemRepository.findAll());
         modelAndView.addObject("Courses", courseRepository.findAll());
+        modelAndView.addObject("Tasks", taskRepository.findAll());
 
         return modelAndView;
     }

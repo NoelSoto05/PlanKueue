@@ -16,12 +16,13 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" style="border: none">
+      <h1 class="text-center">Plan Kueue</h1>
+      <h2 class="text-center">Get your schedule in order!</h2>
       <div class="left-column container" style="float: left; width: 75%; border-radius: 0; height: 500px; overflow-y: scroll;">
-        <h1 class="text-center">To Do</h1>
-        <hr class="no-line" />
         <table class="table table-bordered">
           <thead>
+            <th style="text-align: center;">Events</th>
             <tr>
               <th>Actions</th>
               <th>Id</th>
@@ -51,6 +52,38 @@
             </tr>
           </tbody>
         </table>
+
+        <table class="table table-bordered">
+          <thead>
+            <th style="text-align: center;">Assignments</th>
+            <tr>
+              <th>Actions</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Potential Points</th>
+              <th>Earned Points</th>
+              <th>Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+            th:each="task: ${Tasks}"
+            th:class="${task.completed} ? success : warning">
+            <td>
+              <div class="btn btn-group-sm" role="group">
+                <a class="btn btn-info" th:href="@{/editAssignment/{id}(id=${task.assignmentId})}">Edit</a>
+                <a class="btn btn-danger" th:href="@{/deleteAssignment/{id}(id=${task.assignmentId})}">Delete</a>
+              </div>
+            </td>
+            <td th:text="${task.assignmentId}">task_id</td>
+            <td th:text="${task.name}">task_name</td>
+            <td th:text="${task.possiblePoints}">task_pospoints</td>
+            <td th:text="${task.earnedPoints}">task_earnpoints</td>
+            <td th:text="${task.dueDate}">task_dueDate</td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
       <div class="right-column container" style="float: right; width: 25%; border-radius: 0; height: 500px; overflow-y: scroll;">
         <h1 class="text-center">Notes:</h1>

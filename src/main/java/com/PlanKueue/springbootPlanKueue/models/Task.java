@@ -44,6 +44,10 @@ public class Task {
     @Setter
     private double earnedPoints;
 
+    @Getter
+    @Setter
+    private boolean completed;
+
     // Default constructor
     public Task() {
     }
@@ -55,5 +59,6 @@ public class Task {
         this.possiblePoints = 0.0;
         this.earnedPoints = 0.0;
         this.dueDate = "";
+        this.completed = false;
     }
 }
