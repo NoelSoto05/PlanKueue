@@ -47,6 +47,21 @@
           </div> <!-- closing form-group div for Course Name input -->
 
           <div class="form-group">
+            <label for="course">Course Description</label>
+            <input
+              class="form-control"
+              type="text"
+              th:field="*{courseDescription}"
+              id="description"
+              placeholder="Description"
+            />
+            <span
+              th:if="${#fields.hasErrors('courseDescription')}"
+              th:errors="*{courseDescription}"
+            ></span> 
+          </div> <!-- closing form-group div for Course Name input -->
+
+          <div class="form-group">
             <label for="currentCourseGrade">Current Grade</label>
             <input
               class="form-control"
