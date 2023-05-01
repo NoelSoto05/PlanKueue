@@ -48,6 +48,7 @@ public class EventController {
         // pull all the items out of the database and adds them to a list object with
         // the key name PlannerItems
         modelAndView.addObject("PlannerItems", planKueueItemRepository.findAll());
+        modelAndView.addObject("Courses", courseRepository.findAll());
 
         return modelAndView;
     }

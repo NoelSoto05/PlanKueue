@@ -85,14 +85,14 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th style="width: 10%">Actions</th>
                 <th>Name</th>
                 <th>Grade</th>
               </tr>
             </thead>
             <tbody>
               <tr
-              th:each="course: ${CourseItems}"
-              th:class="${course.complete} ? success : warning">
+              th:each="course: ${Courses}">
               <td>
                 <div class="btn btn-group-sm" role="group">
                   <a class="btn btn-info" th:href="@{/editCourse/{id}(id=${course.courseId})}"
