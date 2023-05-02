@@ -28,7 +28,7 @@ These are needed to compile and run the PlanKueue Application
 - []Remove notes
 - []Calculate grade
 - []Calculate required grade
-- []??Register Acc??
+- [X]Register Acc
 - [X]Add an Event non assignment related
 - [X]update event
 - [X]remove event
