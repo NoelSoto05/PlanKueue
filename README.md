@@ -21,6 +21,8 @@ These are needed to compile and run the PlanKueue Application
 - [X]Editing a task
 - [X]Due date 
 - [X]Add course
+- [X]Remove course
+- [X]Edit Course
 - []Set task recurrence
 - []Task specific notes
 - [X]General notes section
