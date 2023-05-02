@@ -24,20 +24,6 @@ public class Note {
     @Setter
     private String noteDesc;
 
-// TO FIX: ADJUST TABLES, NEED BRIDGE NODE: NOTE CAN BE ATTACHED TO
-//         EVENT, OR NOTE, OR NOTHING, DIFFERENTIATE SOMEHOW
-    @ManyToOne
-    @JoinColumn(name = "not_assignmentID", referencedColumnName = "assignmentId")
-    private Task not_assignmentId;
-
-    @ManyToOne
-    @JoinColumn(name = "not_iD", referencedColumnName = "id")
-    private Event not_id;
-
-    @ManyToOne
-    @JoinColumn(name = "not_accountId", referencedColumnName = "accountId")
-    private Account not_accountId;
-
     //Default Constructor
     public Note() {}
 

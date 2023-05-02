@@ -1,8 +1,5 @@
 package com.PlanKueue.springbootPlanKueue.models;
 
-import java.time.Instant;
-import java.util.ArrayList;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -17,4 +17,19 @@ public class Category {
     @Getter
     @Setter
     private Long categoryId;
+
+    @Getter
+    @Setter
+    private String categoryName;
+
+    @Getter
+    @Setter
+    private double percentage;
+
+    public Category(){};
+
+    public Category(String name, double percentage){
+        categoryName = name;
+        this.percentage = percentage;
+    }
 }
