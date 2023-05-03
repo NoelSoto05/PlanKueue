@@ -6,8 +6,7 @@
 </head>
 <body>
     <h1>Grade Calculator</h1>
-    
-    <form action="/addGrade" method="post">
+    <form action="#" th:action="@{/addGrade}" th:object="${grade}" method="POST">
         <label for="courseName">Course name:</label>
         <input type="text" id="courseName" name="courseName"><br>
         <label for="credits">Credits:</label>
@@ -30,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="grade : ${grades}">
+            <tr th:each="grade: ${grades}">
                 <td th:text="${grade.courseName}"></td>
                 <td th:text="${grade.credits}"></td>
                 <td th:text="${grade.grade}"></td>
@@ -40,7 +39,7 @@
     
     <hr>
     
-    <form action="/calculateGPA" method="get">
+    <form action="#" th:action="@{/calculateGPA}" th:object="${grade}" method="POST">
         <input type="submit" value="Calculate GPA">
     </form>
     
