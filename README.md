@@ -28,8 +28,8 @@ These are needed to compile and run the PlanKueue Application
 - [X]General notes section
 - []Update both notes
 - []Remove notes
-- []Calculate grade
-- []Calculate required grade
+- [X]Calculate grade
+- [X]Calculate required grade
 - [X]Register Account
 - [X]Login Account
 - [X]Add an Event non assignment related
