@@ -181,6 +181,10 @@
             <td th:text="${task.name}">task_name</td>
             <td th:text="${task.possiblePoints}">task_pospoints</td>
             </tr>
+            <tr th:each="event: ${PlannerItems}" th:if="${#dates.format(#dates.createNow(), 'MM/dd/yyyy').equals(event.dueDate)}">
+              <td th:text="${#dates.format(#dates.createNow(), 'MM/dd/yyyy')}"></td>
+              <td th:text="${event.description}">event_name</td>
+            </tr>
             </tbody>
           </table>
         </p>
