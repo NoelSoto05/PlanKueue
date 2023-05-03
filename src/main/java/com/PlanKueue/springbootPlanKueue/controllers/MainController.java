@@ -35,9 +35,6 @@ public class MainController {
     private TaskRepository taskRepository;
 
     @Autowired
-    private TaskRepository courseItemRepository;
-
-    @Autowired
     private CourseRepository courseRepository;
 
     @GetMapping("/")
@@ -64,8 +61,6 @@ public class MainController {
             return "add-todo-item";
         }
 
-        todoItem.setCreatedDate(Instant.now());
-        todoItem.setModifiedDate(Instant.now());
         planKueueItemRepository.save(todoItem);
 
         return "redirect:/";
@@ -79,33 +74,30 @@ public class MainController {
             return "update-todo-item";
         }
 
-        todoItem.setModifiedDate(Instant.now());
-
         planKueueItemRepository.save(todoItem);
         return "redirect:/";
 
     }
 
     @PostMapping("/courseAssignment")
-    public String createCourseAssignment(@Valid Task courseItem, BindingResult result, Model model) {
+    public String createCourseAssignment(@Valid Task assignmentItem, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-assignment";
         }
-        courseItemRepository.save(courseItem);
+        taskRepository.save(assignmentItem);
         return "redirect:/";
     }
 
-    @PostMapping("/courseAssignment/{courseId}")
-    public String updateCourseItem(@PathVariable("courseId") long courseId, @Valid Task courseItem,
+    @PostMapping("/courseAssignment/{assignmentId}")
+    public String updateCourseItem(@PathVariable("assignmentId") long assignmentId, @Valid Task assignmentItem,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
-            courseItem.setAssignmentId(courseId);
+            assignmentItem.setAssignmentId(assignmentId);
             return "update-assignment";
         }
-        courseItemRepository.save(courseItem);
+        taskRepository.save(assignmentItem);
         return "redirect:/";
     }
-    
 
     @PostMapping("/course")
     public String createCourse(@Valid @ModelAttribute("course") Courses course, BindingResult result, Model model) {

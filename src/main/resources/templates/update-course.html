@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} "
+    />
+  </head>
+
+  <body>
+    <div class="container"></div>
+    <h1 class="text-center">Update Course</h1>
+    <hr class="no-line" />
+    <div class="left-column container">
+        <div class="left-column container">
+        <form
+            action="#"
+            th:action="@{/course/{id}(id=${course.courseId})}"
+            th:object="${course}"
+            method="POST">
+        <div class="frm-group">
+            <label for="courseName"> Name </label>
+            <input
+              class="form-control"
+              type="text"
+              th:field="*{courseName}"
+              placeholder="Edit Name"
+            />
+            <span
+            th:if="${#fields.hasErrors('courseName')}"
+            th:errors="*{courseName}"
+          ></span>
+
+            <div class="frm-group">
+              <label for="courseDescription"> Description </label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="*{courseDescription}"
+                placeholder="Add a description"
+              />
+              <span
+              th:if="${#fields.hasErrors('courseDescription')}"
+              th:errors="*{courseDescription}"
+            ></span>
+
+           </div>
+            <button class="btn btn-default" type="submit">Update</button>
+          </form>
+        </div>
+  </body>
+</html>

@@ -24,17 +24,17 @@ public class AssignmentFormController {
         return "add-assignment";
     }
 
-    @GetMapping("/editAssignment/{courseId}")
-    public String showUpdateForm(@PathVariable("assignmentId") long courseId, Model model) {
-        Task courseAssignment = courseAssignmentRepository.findById(courseId)
-                .orElseThrow(() -> new IllegalArgumentException("assignemnt id: " + courseId + " not found"));
+    @GetMapping("/editAssignment/{assignmentId}")
+    public String showUpdateForm(@PathVariable("assignmentId") long assignmentId, Model model) {
+        Task courseAssignment = courseAssignmentRepository.findById(assignmentId)
+                .orElseThrow(() -> new IllegalArgumentException("assignemnt id: " + assignmentId + " not found"));
 
         model.addAttribute("courseAssignment", courseAssignment);
         return "update-assignment";
 
     }
 
-    @GetMapping("/deleteAssignment/{courseId}")
+    @GetMapping("/deleteAssignment/{assignmentId}")
     public String deleteTodoItem(@PathVariable("assignmentId") long courseId, Model model) {
         Task courseAssignment = courseAssignmentRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Assignment id: " + courseId + " not found"));
