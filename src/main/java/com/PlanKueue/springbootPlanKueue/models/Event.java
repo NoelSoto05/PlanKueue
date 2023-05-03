@@ -65,6 +65,10 @@ public class Event {
     @Setter
     private String taskNote;
 
+    @Getter
+    @Setter
+    private Boolean reoccuring;
+
     // empty default constructor
     public Event() {
 
@@ -93,6 +97,7 @@ public class Event {
         this.dueDate = "";
 
         this.taskNote = "";
+        this.reoccuring= true;
 
     }
 
