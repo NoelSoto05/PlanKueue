@@ -34,7 +34,7 @@ public class CourseFormController {
 
     }
 
-    @GetMapping("/deletecourse/{courseId}")
+    @GetMapping("/deleteCourse/{courseId}")
     public String deleteTodoCourseItem(@PathVariable("courseId") long courseId, Model model) {
         Courses course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Course id: " + courseId + " not found"));
