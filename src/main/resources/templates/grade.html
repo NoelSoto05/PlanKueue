@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Grade Calculator</title>
 </head>
 <body>
     <h1>Grade Calculator</h1>
+    
     <form action="#" th:action="@{/addGrade}" th:object="${grade}" method="POST">
         <label for="courseName">Course name:</label>
         <input type="text" id="courseName" name="courseName"><br>
+        
         <label for="credits">Credits:</label>
         <input type="number" id="credits" name="credits"><br>
+        
         <label for="grade">Grade:</label>
         <input type="number" step="0.01" id="grade" name="grade"><br>
+        
         <input type="submit" value="Add grade">
     </form>
     
     <hr>
     
     <h2>Grades</h2>
-    
     <table>
         <thead>
             <tr>
@@ -37,16 +40,14 @@
         </tbody>
     </table>
     
-    <hr>
-    
-    <form action="#" th:action="@{/calculateGPA}" th:object="${grade}" method="POST">
+    <form action="#" th:action="@{/calculateGPA}" method="POST">
         <input type="submit" value="Calculate GPA">
     </form>
     
     <hr>
     
     <h2>GPA</h2>
-    
     <p>Your GPA is: <span th:text="${gpa}"></span></p>
+    
 </body>
 </html>

@@ -5,12 +5,6 @@ public class Grade {
     private int credits;
     private double grade;
 
-    public Grade(String courseName, int credits, double grade) {
-        this.courseName = courseName;
-        this.credits = credits;
-        this.grade = grade;
-    }
-
     public String getCourseName() {
         return courseName;
     }
