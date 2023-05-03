@@ -38,7 +38,7 @@ These are needed to compile and run the PlanKueue Application
 - []Generate priority list for assignments
 - []Generate priority list for general tasks 
 - []Generate course priority list
-- []Receive Due date or event alerts
+- [X]Receive Due date or event alerts
 
 
 
