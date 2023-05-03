@@ -29,13 +29,20 @@
                 <th>Course name</th>
                 <th>Credits</th>
                 <th>Grade</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="grade: ${grades}">
+            <tr th:each="grade, gradeIndex: ${grades}">
                 <td th:text="${grade.courseName}"></td>
                 <td th:text="${grade.credits}"></td>
                 <td th:text="${grade.grade}"></td>
+                <td>
+                    <form action="#" th:action="@{/deleteGrade}" method="POST">
+                        <input type="hidden" th:name="index" th:value="${gradeIndex.index}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

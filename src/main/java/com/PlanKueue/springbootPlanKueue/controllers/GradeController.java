@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.PlanKueue.springbootPlanKueue.models.Grade;
 
@@ -56,6 +57,11 @@ public String calculateGPA(Model model) {
     // add the GPA to the model and return the GPA view
     model.addAttribute("gpa", gpa);
     return "grade";
+}
+@PostMapping("/deleteGrade")
+public String deleteGrade(@RequestParam("index") int index) {
+    grades.remove(index);
+    return "redirect:/GPA";
 }
 }
     
