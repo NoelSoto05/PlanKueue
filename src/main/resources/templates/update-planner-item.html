@@ -10,6 +10,7 @@
     />
   </head>
 
+
   <body>
     <div class="container"></div>
     <h1 class="text-center">Update Event</h1>
@@ -46,9 +47,15 @@
         </div>
         <button class="btn btn-default" type="submit">Update</button>
 
+
         <input type="hidden" th:field="*{createdDate}" />
         <input type="hidden" th:field="*{modifiedDate}" />
+        <input type="hidden" th:field="*{reoccuring}" th:value="${todo.reoccuring}" />
+        <input type="hidden" th:field="*{dueDate}" th:value="${todo.updateDueDate()}" />
       </form>
     </div>
   </body>
 </html>
+
+
+

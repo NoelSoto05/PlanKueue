@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
-      function convertDateFormat(dateString) {
-  var dateParts = dateString.split("/");
-  var year = dateParts[2];
-  var month = dateParts[0];
-  var day = dateParts[1];
-  return year + "/" + month + "/" + day;
-};
+      function addOneMonth(dateString)
+      {
+        var dateParts = dateString.split("/");
+        var year = dateParts[2];
+        var month = dateParts[0] +1;
+        var day = dateParts[1];
+        return month + "/" + day + "/" + year;
+      };
     </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,12 +26,13 @@
     />
   </head>
 
+
   <body>
     <div class="container" style="border: none">
       <h1 class="text-center">Plan Kueue</h1>
       <h2 class="text-center">Get your schedule in order!</h2>
       <div class="left-column container" style="float: left; width: 75%; border-radius: 0; height: 600px; overflow-y: hidden;">
-        
+       
         <!-- Events table -->
         <div id="eventsTable" class="table-container" style="overflow-y: auto; height: 50%;margin-bottom: 20px;">
           <table class="table table-bordered">
@@ -41,6 +44,7 @@
                 <th>Description</th>
                 <th>Complete</th>
                 <th>Due Date</th>
+                <th>Monthly Recurrence</th>
               </tr>
             </thead>
             <tbody>
@@ -60,11 +64,15 @@
                 <td th:text="${item.id}">item_id</td>
                 <td th:text="${item.description}">item_description</td>
                 <td th:text="${item.complete}">item_completed</td>
-                <td th:text="${item.dueDate}">modified_date</td>
+                <td th:text="${item.dueDate}" > newDueDate</td>
+                <td th:text="${item.reoccuring}">Recurrence</td>
               </tr>
+
+
             </tbody>
           </table>
         </div>
+
 
         <!-- Assignments table -->
         <div id="assignmentsTable" class="table-container" style="overflow-y: auto; height: 50%;">
@@ -89,7 +97,7 @@
                   <a class="btn btn-info" th:href="@{/editAssignment/{assignmentId}(assignmentId=${task.assignmentId})}">Edit</a>
   <a class="btn btn-danger" th:href="@{/deleteAssignment/{assignmentId}(assignmentId=${task.assignmentId})}">Delete</a>
                 </div>
-            
+           
               </td>
               <td th:text="${task.assignmentId}">task_id</td>
               <td th:text="${task.name}">task_name</td>
@@ -101,25 +109,25 @@
           </table>
         </div>
       </div>
-      
+     
       <div class="right-column container" style="float: right; width: 25%; border-radius: 0; height: 600px; overflow-y: hidden;resize: none;">
         <h1 class="text-center">Notes:</h1>
         <textarea name="note" rows="20" style="width: 100%" th:value="${text}" oninput="updateText(event)"></textarea>
       </div>
-      
+     
       <script>
         function updateText(event) {
           var newText = event.target.value;
           localStorage.setItem("text", newText);
         }
-      
+     
         // Load text from local storage when the page loads
         var text = localStorage.getItem("text");
         if (text) {
           document.querySelector("textarea[name='note']").value = text;
         }
       </script>
-      
+     
       <p style = "text-align: left;">
         <a class="btn btn-success" href="/create-todo">Add Event</a>
         <a class="btn btn-success" href="/add-course">Add Course</a>
@@ -127,6 +135,7 @@
         <a class="btn btn-success" href="/GPA">Calculate GPA</a>
       </p>
     </div>
+
 
     <div class="container" style="border: none;">
       <div class="current-courses container" style="float: left; width: 48%; border-radius: 0;">
@@ -193,8 +202,13 @@
       <div style="clear: both;"></div>
     </div>
 
+
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
 
+
   </body>
 </html>
+
+
+

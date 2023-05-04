@@ -97,8 +97,35 @@ public class Event {
         this.dueDate = "";
 
         this.taskNote = "";
-        this.reoccuring= true;
+        this.reoccuring= false;
 
+    }
+
+    public String updateDueDate()
+    {
+        if(this.reoccuring && this.complete)
+        {
+            String currentDueDate = this.dueDate;
+
+            String[] parts=currentDueDate.split("/");
+    
+            int months = Integer.parseInt(parts[0]);
+            int days = Integer.parseInt(parts[1]);
+            int years = Integer.parseInt(parts[2]);
+    
+            months++;
+    
+            if(months > 12)
+            {
+                years++;
+                months=1;
+            }
+    
+            String updatedDate=String.format("%02d/%02d/%04d", months, days, years);
+            this.dueDate=updatedDate;
+            this.complete=false;
+        }
+        return this.dueDate;
     }
 
     @Override
