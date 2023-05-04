@@ -174,12 +174,12 @@
             </thead>
             <tbody>
             <tr th:each="task: ${Tasks}" th:if="${#dates.format(#dates.createNow(), 'MM/dd/yyyy').equals(task.dueDate)}">
-            <td th:text="${#dates.format(#dates.createNow(), 'MM/dd/yyyy')}">Current Date</td>
+            <td th:text="${'Assignment'}">Current Date</td>
             <td th:text="${task.name}">task_name</td>
             <td th:text="${task.possiblePoints}">task_pospoints</td>
             </tr>
             <tr th:each="event: ${PlannerItems}" th:if="${#dates.format(#dates.createNow(), 'MM/dd/yyyy').equals(event.dueDate)}">
-              <td th:text="${#dates.format(#dates.createNow(), 'MM/dd/yyyy')}"></td>
+              <td th:text="${'Event'}"></td>
               <td th:text="${event.description}">event_name</td>
             </tr>
             </tbody>
@@ -189,6 +189,42 @@
       <div style="clear: both;"></div>
     </div>
 
+
+
+    <div class="container" style="border: none;">
+      <div class="current-courses container" style="float: left; width: 48%; border-radius: 0;">
+        <p>
+          <h1 class="text-left">General Priority Queue</h1>
+          <h1 class="no-line"></h1>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+           
+          </table>
+        </p>
+      </div>
+      <div class="due-today container" style="float: right; width: 48%; border-radius: 0;">
+        <p>
+          <h1 class="text-left">Todays Priority Queue</h1>
+          <h1 class="no-line"></h1>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+          </table>
+        </p>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
