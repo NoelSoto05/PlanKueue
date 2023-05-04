@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script>
-      function addOneMonth(dateString)
-      {
-        var dateParts = dateString.split("/");
-        var year = dateParts[2];
-        var month = dateParts[0] +1;
-        var day = dateParts[1];
-        return month + "/" + day + "/" + year;
-      };
-    </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,11 +53,9 @@
                 <td th:text="${item.id}">item_id</td>
                 <td th:text="${item.description}">item_description</td>
                 <td th:text="${item.complete}">item_completed</td>
-                <td th:text="${item.dueDate}" > newDueDate</td>
+                <td th:text="${item.updateDueDate()}" > newDueDate</td>
                 <td th:text="${item.reoccuring}">Recurrence</td>
               </tr>
-
-
             </tbody>
           </table>
         </div>
