@@ -50,10 +50,6 @@ public class GradeController {
         }
         gpa = totalPoints / totalCredits;
 
-        System.out.println("Total Points: " + totalPoints);
-        System.out.println("Total Credits: " + totalCredits);
-        System.out.println("GPA: " + gpa);
-
         // add the GPA to the model and return the GPA view
         model.addAttribute("gpa", gpa);
         return "grade";
