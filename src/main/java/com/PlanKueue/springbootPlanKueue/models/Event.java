@@ -1,7 +1,5 @@
 package com.PlanKueue.springbootPlanKueue.models;
 
-import java.time.Instant;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -45,16 +43,6 @@ public class Event {
     @Setter
     private boolean complete;
 
-    /* Fetches the date the task is created */
-    @Getter
-    @Setter
-    private Instant createdDate;
-
-    /* Fetches the date the task was modified at */
-    @Getter
-    @Setter
-    private Instant modifiedDate;
-
     /* Fetches the due date for the assignment */
     @Getter
     @Setter
@@ -92,38 +80,33 @@ public class Event {
 
         this.description = description;
         this.complete = false;
-        this.createdDate = Instant.now();
-        this.modifiedDate = Instant.now();
         this.dueDate = "";
 
         this.taskNote = "";
-        this.reoccuring= false;
+        this.reoccuring = false;
 
     }
 
-    public String updateDueDate()
-    {
-        if(this.reoccuring && this.complete)
-        {
+    public String updateDueDate() {
+        if (this.reoccuring && this.complete) {
             String currentDueDate = this.dueDate;
 
-            String[] parts=currentDueDate.split("/");
-    
+            String[] parts = currentDueDate.split("/");
+
             int months = Integer.parseInt(parts[0]);
             int days = Integer.parseInt(parts[1]);
             int years = Integer.parseInt(parts[2]);
-    
+
             months++;
-    
-            if(months > 12)
-            {
+
+            if (months > 12) {
                 years++;
-                months=1;
+                months = 1;
             }
-    
-            String updatedDate=String.format("%02d/%02d/%04d", months, days, years);
-            this.dueDate=updatedDate;
-            this.complete=false;
+
+            String updatedDate = String.format("%02d/%02d/%04d", months, days, years);
+            this.dueDate = updatedDate;
+            this.complete = false;
         }
         return this.dueDate;
     }
@@ -132,7 +115,7 @@ public class Event {
     public String toString() {
         return String.format(
                 "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate = '%s', modifiedDate ='%s', dueDate = %s}",
-                id, description, complete, createdDate, modifiedDate, dueDate);
+                id, description, complete, dueDate);
     }
 
 }

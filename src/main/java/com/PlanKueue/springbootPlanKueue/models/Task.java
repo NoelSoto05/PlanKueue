@@ -17,28 +17,22 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    @Setter
     private Long assignmentId;
 
     @Getter
-    @Setter
     @NotBlank(message = "Name cannot be empty")
     private String name;
 
-    @Getter
     @Setter
     private double grade;
 
     @Getter
-    @Setter
     private String dueDate;
 
     @Getter
-    @Setter
     private double possiblePoints;
 
     @Getter
-    @Setter
     private double earnedPoints;
 
     @Getter
