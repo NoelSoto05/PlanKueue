@@ -24,6 +24,7 @@ import com.PlanKueue.springbootPlanKueue.models.PlannerKueue;
 import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 import com.PlanKueue.springbootPlanKueue.repository.CourseRepository;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
+import com.PlanKueue.springbootPlanKueue.repository.NoteRepository;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
@@ -41,6 +42,9 @@ public class MainController {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private NoteRepository noteRepository;
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -70,6 +74,7 @@ public class MainController {
         }
         modelAndView.addObject("DQueue", queue.getDaily_Planner_Queue());
         modelAndView.addObject("GQueue", queue.getGeneral_Planner_Queue());
+        modelAndView.addObject("Notes", noteRepository.findAll());
         return modelAndView;
     }
 

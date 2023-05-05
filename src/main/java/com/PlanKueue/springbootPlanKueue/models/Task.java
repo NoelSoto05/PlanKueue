@@ -39,6 +39,10 @@ public class Task {
     @Setter
     private boolean completed;
 
+    @Getter
+    @Setter
+    private Long noteID;
+
     // Default constructor
     public Task() {
     }

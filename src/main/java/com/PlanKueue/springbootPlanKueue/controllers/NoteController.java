@@ -30,10 +30,12 @@ public class NoteController {
     }
 
     @PostMapping
-    public Note createNote(@RequestBody Note note) {
-        note.setId(nextId++);
-        notes.add(note);
-        return note;
+    public Long createNote(String note) 
+    {
+        Note newNote= new Note(note);
+        newNote.setId(nextId++);
+        notes.add(newNote);
+        return newNote.getId();
     }
 
     @GetMapping("/note/{id}")

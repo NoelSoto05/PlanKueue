@@ -28,27 +28,15 @@ public class Note {
     @Setter
     private String noteDesc;
 
-    @ManyToOne // define a many-to-one relationship between Note and Account
-    @jakarta.persistence.JoinColumn(name = "account_id")
-    @Getter
-    @Setter
-    private Account account;
 
     //Default Constructor
     public Note() {}
 
     //Parameterized Constructor attached to account
-    public Note(String noteDesc, Account account){
+    public Note(String noteDesc){
         this.noteDesc = noteDesc;
-        this.account = account;
     }
 
-    //Parameterized Constructor attached to something
-    public Note(String noteDesc, Long id, Account account){
-        this.noteDesc = noteDesc;
-        this.id = id;
-        this.account = account;
-    }
 
     // getters and setters for id, noteDesc, and account omitted for brevity
 }

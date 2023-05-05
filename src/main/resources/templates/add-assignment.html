@@ -59,6 +59,15 @@
                 th:errors="*{possiblePoints}"
               ></span> 
 
+              <label for="note">Notes</label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="*{noteID}"
+                id="noteID"
+                placeholder="Type note here"
+              />
+
             <hr class="no-line" />
             <label for="dueDate">Select Due Date</label>
 
