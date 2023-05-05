@@ -40,8 +40,12 @@ public class Task {
     private boolean completed;
 
     @Getter
-    @Setter
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long noteID;
+
+    @Getter
+    @Setter
+    private String noteCont;
 
     // Default constructor
     public Task() {
