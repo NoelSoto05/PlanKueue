@@ -10,7 +10,6 @@
     />
   </head>
 
-
   <body>
     <div class="container"></div>
     <h1 class="text-center">Update Event</h1>
@@ -31,9 +30,9 @@
             placeholder="Add a description"
           />
           <span
-          th:if="${#fields.hasErrors('description')}"
-          th:errors="*{description}"
-        ></span>
+            th:if="${#fields.hasErrors('description')}"
+            th:errors="*{description}"
+          ></span>
         </div>
         <div class="checkbox">
           <label
@@ -47,16 +46,17 @@
         </div>
         <button class="btn btn-default" type="submit">Update</button>
 
-
-        <input type="hidden" th:field="*{createdDate}" />
-        <input type="hidden" th:field="*{modifiedDate}" />
-        <input type="hidden" th:field="*{reoccuring}" th:value="${todo.reoccuring}" />
-        <input type="hidden" th:field="*{dueDate}" th:value="${todo.updateDueDate()}" />
+        <input
+          type="hidden"
+          th:field="*{reoccuring}"
+          th:value="${todo.reoccuring}"
+        />
+        <input
+          type="hidden"
+          th:field="*{dueDate}"
+          th:value="${todo.updateDueDate()}"
+        />
       </form>
-      
     </div>
   </body>
 </html>
-
-
-

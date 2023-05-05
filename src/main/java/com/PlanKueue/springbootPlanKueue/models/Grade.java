@@ -1,6 +1,7 @@
 package com.PlanKueue.springbootPlanKueue.models;
 
 public class Grade {
+
     private String courseName;
     private int credits;
     private double grade;

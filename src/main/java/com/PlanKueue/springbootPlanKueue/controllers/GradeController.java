@@ -60,4 +60,5 @@ public class GradeController {
         grades.remove(index);
         return "redirect:/GPA";
     }
+
 }
