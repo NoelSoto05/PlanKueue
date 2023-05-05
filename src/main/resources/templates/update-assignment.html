@@ -37,10 +37,11 @@
               type="checkbox"
               th:field="*{completed}"
               id="completed"
-            />Complete</label
-          >
+            />Complete</label>
         </div>
         <button class="btn btn-default" type="submit">Update</button>
+
+        <input type="hidden" th:field="*{dueDate}" th:value="${courseAssignment.dueDate}" />
       </form>
     </div>
   </body>

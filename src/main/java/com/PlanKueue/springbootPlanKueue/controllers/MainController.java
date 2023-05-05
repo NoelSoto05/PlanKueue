@@ -1,6 +1,9 @@
 package com.PlanKueue.springbootPlanKueue.controllers;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.PlanKueue.springbootPlanKueue.models.Task;
 import com.PlanKueue.springbootPlanKueue.models.Courses;
 import com.PlanKueue.springbootPlanKueue.models.Event;
+import com.PlanKueue.springbootPlanKueue.models.PlannerKueue;
 import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 import com.PlanKueue.springbootPlanKueue.repository.CourseRepository;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 
 //this declares this class as a controller
@@ -37,7 +42,12 @@ public class MainController {
     @Autowired
     private CourseRepository courseRepository;
 
+
     @GetMapping("/")
+
+
+
+
     public ModelAndView index() {
 
         // this logger is at info level and will display the information in the
@@ -51,8 +61,25 @@ public class MainController {
         modelAndView.addObject("Courses", courseRepository.findAll());
         modelAndView.addObject("Tasks", taskRepository.findAll());
 
+        Iterable<Task> tasks = taskRepository.findAll();
+        PlannerKueue queue = new PlannerKueue();
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String formattedDate = now.format(formatter);
+
+    // Add all tasks to the queue
+    for (Task task : tasks) {
+        if(task.getDueDate()!=null)
+        {
+            queue.addTask(task, formattedDate);
+        }
+    }
+        modelAndView.addObject("DQueue", queue.getDaily_Planner_Queue());
+        modelAndView.addObject("GQueue", queue.getGeneral_Planner_Queue());
         return modelAndView;
     }
+
+   
 
     @PostMapping("/todo")
     public String createTodoItem(@Valid Event todoItem, BindingResult result, Model model) {

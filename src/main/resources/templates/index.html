@@ -189,7 +189,7 @@
       <div style="clear: both;"></div>
     </div>
 
-
+    <tr th:each="task: ${Tasks}"></tr>
 
     <div class="container" style="border: none;">
       <div class="current-courses container" style="float: left; width: 48%; border-radius: 0;">
@@ -204,7 +204,10 @@
                 <th>Notes</th>
               </tr>
             </thead>
-           
+            <tr th:each="item : ${GQueue}">
+              <td th:text="${item.name}"></td>
+              <td th:text="${item.possiblePoints}"></td>
+            </tr>
           </table>
         </p>
       </div>
@@ -220,6 +223,10 @@
                 <th>Notes</th>
               </tr>
             </thead>
+            <tr th:each="item : ${DQueue}">
+              <td th:text="${item.name}"></td>
+              <td th:text="${item.possiblePoints}"></td>
+            </tr>
           </table>
         </p>
       </div>
