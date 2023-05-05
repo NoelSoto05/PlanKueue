@@ -24,10 +24,10 @@ These are needed to compile and run the PlanKueue Application
 - [X]Remove course
 - [X]Edit Course
 - [x]Set task recurrence
-- []Task specific notes
+- [X]Task specific notes
 - [X]General notes section
-- []Update both notes
-- []Remove notes
+- [X]Update both notes
+- [X]Remove notes
 - [X]Calculate grade
 - [X]Calculate required grade
 - [X]Register Account
