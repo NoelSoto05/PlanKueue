@@ -5,24 +5,22 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.PriorityQueue;
 
-import org.hibernate.validator.internal.util.privilegedactions.GetDeclaredField;
-import org.hibernate.validator.spi.properties.GetterPropertySelectionStrategy;
 import org.junit.jupiter.api.Test;
 
 import com.PlanKueue.springbootPlanKueue.models.PlannerKueue;
 import com.PlanKueue.springbootPlanKueue.models.Task;
 
 public class PlannerKueueTests {
-    
+
     @Test
-    public void testNewPlannerKueue(){
+    public void testNewPlannerKueue() {
         PlannerKueue pk = new PlannerKueue();
         assertNotNull(pk.getDaily_Planner_Queue());
         assertNotNull(pk.getGeneral_Planner_Queue());
     }
 
     @Test
-    public void testAddTask(){
+    public void testAddTask() {
         PlannerKueue pk = new PlannerKueue();
 
         Task task = new Task("Assignment 1");
