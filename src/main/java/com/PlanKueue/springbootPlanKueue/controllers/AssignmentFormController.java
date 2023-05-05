@@ -16,8 +16,12 @@ public class AssignmentFormController {
 
     private final Logger logger = LoggerFactory.getLogger(AssignmentFormController.class);
 
-    @Autowired
     private TaskRepository courseAssignmentRepository;
+
+    @Autowired
+    public void setCourseAssignmentRepository(TaskRepository courseAssignmentRepository) {
+        this.courseAssignmentRepository = courseAssignmentRepository;
+    }
 
     @GetMapping("/add-assignment")
     public String showCreateForm(Task courseAssignment) {

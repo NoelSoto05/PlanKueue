@@ -1,4 +1,4 @@
-package com.PlanKueue.springbootPlanKueue;
+package com.PlanKueue.springbootPlanKueue.modelTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,12 +13,12 @@ import com.PlanKueue.springbootPlanKueue.repository.AccountRepository;
 
 @DataJpaTest
 public class AccountTests {
-    
+
     @Autowired
     private AccountRepository accountRepository;
 
     @Test
-    public void testCreateAccount(){
+    public void testCreateAccount() {
         Account account = new Account();
         Account savedAccount = accountRepository.save(account);
 
@@ -28,7 +28,7 @@ public class AccountTests {
     }
 
     @Test
-    public void testUpdateAccount(){
+    public void testUpdateAccount() {
         Account account = new Account();
         Account savedAccount = accountRepository.save(account);
 
@@ -43,7 +43,7 @@ public class AccountTests {
     }
 
     @Test
-    public void testDeleteAccount(){
+    public void testDeleteAccount() {
         Account account = new Account();
         Account savedAccount = accountRepository.save(account);
 
@@ -54,7 +54,7 @@ public class AccountTests {
     }
 
     @Test
-    public void testFindById(){
+    public void testFindById() {
         Account account = new Account();
         account.setUsername("gppq");
         Account savedAccount = accountRepository.save(account);

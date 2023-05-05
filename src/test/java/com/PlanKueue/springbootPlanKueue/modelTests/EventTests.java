@@ -1,4 +1,4 @@
-package com.PlanKueue.springbootPlanKueue;
+package com.PlanKueue.springbootPlanKueue.modelTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
