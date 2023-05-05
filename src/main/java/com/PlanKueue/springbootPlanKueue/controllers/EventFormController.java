@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.PlanKueue.springbootPlanKueue.models.Event;
-import com.PlanKueue.springbootPlanKueue.models.Task;
+
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
-import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 
 @Controller
 public class EventFormController {
@@ -20,9 +19,6 @@ public class EventFormController {
 
     @Autowired
     private EventRepository planKueueItemRepository;
-
-    @Autowired
-    private TaskRepository taskRepository;
 
     @GetMapping("/create-todo")
     public String showCreateForm(Event todoItem) {
