@@ -70,10 +70,7 @@ public class Event {
      * 
      *                    Initializes the following fields:
      *                    - {@link #complete} to false
-     *                    - {@link #createdDate} to the current date and time
-     *                    - {@link #modifiedDate} to the current date and time
      *                    - {@link #dueDate} to an empty string
-     *                    - {@link #assignmentPoints} to 0.0
      *                    - {@link #taskNote} to an empty string
      */
     public Event(String description) {
@@ -81,7 +78,6 @@ public class Event {
         this.description = description;
         this.complete = false;
         this.dueDate = "";
-
         this.taskNote = "";
         this.reoccuring = false;
 
@@ -114,8 +110,8 @@ public class Event {
     @Override
     public String toString() {
         return String.format(
-                "PlanKueueItem{id='%d', description = '%s', complete = '%s', createdDate = '%s', modifiedDate ='%s', dueDate = %s}",
-                id, description, complete, dueDate);
+                "PlanKueueItem{id='%d', description = '%s', complete = '%s', dueDate = '%s', taskNote = '%s', reoccuring = '%s'}",
+                id, description, complete, dueDate, taskNote, reoccuring);
     }
 
 }

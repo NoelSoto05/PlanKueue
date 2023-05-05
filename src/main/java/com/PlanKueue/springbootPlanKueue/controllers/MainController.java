@@ -114,6 +114,7 @@ public class MainController {
             BindingResult result, Model model) {
         if (result.hasErrors()) {
             assignmentItem.setAssignmentId(assignmentId);
+            model.addAttribute("courseAssignment", assignmentItem); // Add this line
             return "update-assignment";
         }
         taskRepository.save(assignmentItem);

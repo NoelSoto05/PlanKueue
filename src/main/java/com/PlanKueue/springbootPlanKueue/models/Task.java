@@ -96,4 +96,18 @@ public class Task {
         return earnedPoints / possiblePoints * 100.0;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "assignmentId=" + assignmentId +
+                ", name='" + name + '\'' +
+                ", grade=" + grade +
+                ", dueDate='" + dueDate + '\'' +
+                ", possiblePoints=" + possiblePoints +
+                ", earnedPoints=" + earnedPoints +
+                ", completed=" + completed +
+                ", noteID=" + noteID +
+                '}';
+    }
+
 }
