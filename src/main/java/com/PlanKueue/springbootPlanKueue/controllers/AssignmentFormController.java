@@ -1,7 +1,5 @@
 package com.PlanKueue.springbootPlanKueue.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +12,12 @@ import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 @Controller
 public class AssignmentFormController {
 
-    private final Logger logger = LoggerFactory.getLogger(AssignmentFormController.class);
+    private TaskRepository courseAssignmentRepository;
 
     @Autowired
-    private TaskRepository courseAssignmentRepository;
+    public void setCourseAssignmentRepository(TaskRepository courseAssignmentRepository) {
+        this.courseAssignmentRepository = courseAssignmentRepository;
+    }
 
     @GetMapping("/add-assignment")
     public String showCreateForm(Task courseAssignment) {

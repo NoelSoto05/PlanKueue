@@ -1,9 +1,7 @@
 package com.PlanKueue.springbootPlanKueue.controllers;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +24,6 @@ import com.PlanKueue.springbootPlanKueue.repository.CourseRepository;
 import com.PlanKueue.springbootPlanKueue.repository.EventRepository;
 import com.PlanKueue.springbootPlanKueue.repository.NoteRepository;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 
 //this declares this class as a controller

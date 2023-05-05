@@ -18,6 +18,12 @@ public class CourseFormController {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    public void setCourseRepository(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
+
     @GetMapping("/add-course")
     public String showCreateCourseForm(Model model) {
         model.addAttribute("course", new Courses());
@@ -43,5 +49,4 @@ public class CourseFormController {
         return "redirect:/";
     }
 
-  
 }
