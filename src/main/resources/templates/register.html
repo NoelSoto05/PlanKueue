@@ -1,42 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Form</title>
+	<title>Registration Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 30px;
+			color: #333;
+		}
+		form {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			padding: 20px;
+			margin: 0 auto;
+			max-width: 600px;
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #333;
+		}
+		input[type="text"],
+		input[type="password"],
+		input[type="email"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			width: 100%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+			color: #333;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		input[type="submit"]:hover {
+			background-color: #333;
+		}
+	</style>
 </head>
 <body>
-    <h1>Registration Form</h1>
-    <form action="/register" method="post">
-        <fieldset>
-            <legend>Account Information</legend>
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="Enter your username">
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required placeholder="Enter your password">
-            </div>
-            <div>
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Personal Information</legend>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-            <div>
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
-            </div>
-            <div>
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
-            </div>
-        </fieldset>
-        <button type="submit">Register</button>
-    </form>
-</body>
-</html>
+	<h1>Registration Form</h1>
+	<form action="/register" method="post">
+		<fieldset>
+			<legend>Account Information</legend>
+			<div>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required placeholder="Enter your username">
+			</div>
+			<div>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required placeholder="Enter your password">
+			</div>
+			<div>
+				<label for="confirmPassword">Confirm Password:</label>
+				<input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Personal Information</legend>
+			<div>
+				<label for="firstName">First Name:</label>
+				<input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+			</div>
+			<div>
+				<label for="lastName">Last Name:</label>
+				<input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required placeholder="Enter your email">
+			</div>
+			
+                    </div>
+                    </fieldset>
+                    <input type="submit" value="Register">
+                    </form>
+                    </body>
+                    </html>
