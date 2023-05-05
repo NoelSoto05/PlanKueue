@@ -1,6 +1,5 @@
-package com.PlanKueue.springbootPlanKueue.controllerTests;
+package com.PlanKueue.springbootPlanKueue.controllers;
 
-import com.PlanKueue.springbootPlanKueue.controllers.AssignmentFormController;
 import com.PlanKueue.springbootPlanKueue.models.Task;
 import com.PlanKueue.springbootPlanKueue.repository.TaskRepository;
 import org.junit.jupiter.api.BeforeEach;
