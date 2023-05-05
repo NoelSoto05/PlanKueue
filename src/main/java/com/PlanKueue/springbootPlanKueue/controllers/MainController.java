@@ -42,12 +42,7 @@ public class MainController {
     @Autowired
     private CourseRepository courseRepository;
 
-
     @GetMapping("/")
-
-
-
-
     public ModelAndView index() {
 
         // this logger is at info level and will display the information in the
@@ -67,19 +62,16 @@ public class MainController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String formattedDate = now.format(formatter);
 
-    // Add all tasks to the queue
-    for (Task task : tasks) {
-        if(task.getDueDate()!=null)
-        {
-            queue.addTask(task, formattedDate);
+        // Add all tasks to the queue
+        for (Task task : tasks) {
+            if (task.getDueDate() != null) {
+                queue.addTask(task, formattedDate);
+            }
         }
-    }
         modelAndView.addObject("DQueue", queue.getDaily_Planner_Queue());
         modelAndView.addObject("GQueue", queue.getGeneral_Planner_Queue());
         return modelAndView;
     }
-
-   
 
     @PostMapping("/todo")
     public String createTodoItem(@Valid Event todoItem, BindingResult result, Model model) {

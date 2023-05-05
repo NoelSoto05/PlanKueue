@@ -1,6 +1,7 @@
 package com.PlanKueue.springbootPlanKueue.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.validation.annotation.Validated;
 
 import com.PlanKueue.springbootPlanKueue.models.Courses;
 
@@ -12,6 +13,8 @@ import com.PlanKueue.springbootPlanKueue.models.Courses;
  * deleteById(): deletes an entity by its primary key
  * 
  */
+
+@Validated
 public interface CourseRepository extends CrudRepository<Courses, Long> {
 
 }

@@ -1,5 +1,7 @@
 package com.PlanKueue.springbootPlanKueue.models;
 
+import org.springframework.validation.annotation.Validated;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +13,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Course")
+@Validated
 public class Courses {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +24,7 @@ public class Courses {
 
     @Getter
     @Setter
-    @NotBlank(message = " Course name cannot be empty")
+    @NotBlank(message = "Course name cannot be empty")
     private String courseName;
 
     @Getter
@@ -42,6 +45,7 @@ public class Courses {
 
     public Courses(String courseName) {
         this.courseName = courseName;
+
         this.currentCourseGrade = 0.0;
         this.desiredCourseGrade = 0.0;
     }
