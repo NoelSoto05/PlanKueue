@@ -35,8 +35,8 @@ These are needed to compile and run the PlanKueue Application
 - [X]Add an Event non assignment related
 - [X]update event
 - [X]remove event
-- []Generate priority list for assignments
-- []Generate priority list for general tasks 
+- [X]Generate priority list for assignments
+- [X]Generate priority list for general tasks 
 - []Generate course priority list
 - [X]Receive Due date or event alerts
 
