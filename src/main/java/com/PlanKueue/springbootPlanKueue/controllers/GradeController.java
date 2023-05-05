@@ -16,7 +16,6 @@ import com.PlanKueue.springbootPlanKueue.models.Grade;
 @Controller
 public class GradeController {
 
-    @Autowired
     private List<Grade> grades = new ArrayList<Grade>();
 
     @GetMapping("/GPA")
