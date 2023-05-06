@@ -209,6 +209,7 @@
             <tr th:each="item : ${GQueue}">
               <td th:text="${item.name}"></td>
               <td th:text="${item.possiblePoints}"></td>
+              <td th:text="${item.noteCont}">task_note</td>
             </tr>
           </table>
         </p>
@@ -228,6 +229,7 @@
             <tr th:each="item : ${DQueue}">
               <td th:text="${item.name}"></td>
               <td th:text="${item.possiblePoints}"></td>
+              <td th:text="${item.noteCont}">task_note</td>
             </tr>
           </table>
         </p>
