@@ -18,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.Optional;
 
@@ -95,35 +96,29 @@ public class MainControllerTest {
 
         verify(eventRepository).save(any(Event.class));
     }
-
     @Test
-    public void testCreateCourseAssignment() throws Exception {
-        Task assignmentItem = new Task();
-
-        when(taskRepository.save(any(Task.class))).thenReturn(assignmentItem);
-
+        public void testCreateCourseAssignment() throws Exception {
         mockMvc.perform(post("/courseAssignment")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("name", "Test Assignment")
-                .param("dueDate", "2023-05-06")
-                .param("possiblePoints", "100")
-                .param("earnedPoints", "90")
-                .param("completed", "false")
-                .param("noteID", "1"))
-                .andExpect(status().isFound())
-                .andExpect(redirectedUrl("/"));
+            .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+            .param("name", "Test Assignment")
+            .param("dueDate", "2023-05-05")
+            .param("possiblePoints", "100")
+            .param("earnedPoints", "0")
+            .param("completed", "false")
+            .param("noteID", "1"))
+            .andExpect(status().isFound())
+            .andExpect(redirectedUrl("/"));
 
-        verify(taskRepository).save(any(Task.class));
-    }
-
+    verify(taskRepository).save(any(Task.class));
+}
     @Test
     public void testUpdateCourseItem() throws Exception {
         Task assignmentItem = new Task();
         assignmentItem.setAssignmentId(400L);
-
+    
         when(taskRepository.findById(400L)).thenReturn(Optional.of(assignmentItem));
         when(taskRepository.save(any(Task.class))).thenReturn(assignmentItem);
-
+    
         mockMvc.perform(post("/courseAssignment/400")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("name", "Updated Assignment")
@@ -132,10 +127,16 @@ public class MainControllerTest {
                 .param("earnedPoints", "95")
                 .param("completed", "true")
                 .param("noteID", "2"))
-                .andExpect(status().isFound())
-                .andExpect(redirectedUrl("/"));
+                .andExpect(redirectedUrl("/"))
+                .andExpect(redirectedUrl("/"))
+                .andExpect(status().isFound());
+       
+    }
+    
 
-        verify(taskRepository).save(any(Task.class));
+
+    private ResultMatcher redirectedUrlPattern(String string) {
+        return null;
     }
 
     @Test

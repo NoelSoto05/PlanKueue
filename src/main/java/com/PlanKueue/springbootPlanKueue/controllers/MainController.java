@@ -109,17 +109,14 @@ public class MainController {
         return "redirect:/";
     }
 
-    @PostMapping("/courseAssignment/{assignmentId}")
-    public String updateCourseItem(@PathVariable("assignmentId") long assignmentId, @Valid Task assignmentItem,
-            BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            assignmentItem.setAssignmentId(assignmentId);
-            model.addAttribute("courseAssignment", assignmentItem); // Add this line
-            return "update-assignment";
-        }
-        taskRepository.save(assignmentItem);
-        return "redirect:/";
-    }
+   @PostMapping("/courseAssignment/{assignmentId}")
+public String updateCourseItem(@PathVariable Long assignmentId, @ModelAttribute("task") Task task, Model model) {
+    //update the task with the new information
+    taskRepository.save(task);
+
+    //redirect back to the root URL after the form has been submitted
+    return "redirect:/";
+}
 
     @PostMapping("/course")
     public String createCourse(@Valid @ModelAttribute("course") Courses course, BindingResult result, Model model) {
@@ -140,5 +137,6 @@ public class MainController {
         courseRepository.save(course);
         return "redirect:/";
     }
+    
 
 }
